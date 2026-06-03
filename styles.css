@@ -1,4 +1,4 @@
-@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500&f[]=clash-display@300,400,500&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500&f[]=clash-display@300,400,500&f[]=cabinet-grotesk@300,400,500&display=swap");
 
 :root {
   --bg: #060706;
@@ -13,7 +13,7 @@
   --hero-image:
     url("./assets/hero-global-hero.jpg"),
     linear-gradient(135deg, rgba(244, 240, 231, 0.08), rgba(244, 240, 231, 0)),
-    radial-gradient(circle at 72% 18%, rgba(189, 216, 107, 0.14), transparent 24rem),
+    radial-gradient(circle at 72% 18%, rgba(189, 216, 107, 0.18), transparent 24rem),
     linear-gradient(140deg, #151812, #080908 58%, #111914);
   --court-image:
     linear-gradient(135deg, rgba(109, 133, 143, 0.34), transparent 45%),
@@ -27,6 +27,12 @@
   --final-image:
     linear-gradient(135deg, rgba(109, 133, 143, 0.28), transparent 46%),
     linear-gradient(150deg, #151812, #060706 64%);
+  --story-image:
+    linear-gradient(135deg, rgba(244, 240, 231, 0.08), transparent 42%),
+    linear-gradient(160deg, #141812, #060706 70%);
+  --gallery-image:
+    linear-gradient(135deg, rgba(109, 133, 143, 0.2), transparent 48%),
+    linear-gradient(160deg, #121611, #060706 70%);
 }
 
 *,
@@ -180,8 +186,8 @@ textarea {
 
 .gpc-button-primary,
 .gpc-nav-cta {
-  border-color: rgba(189, 216, 107, 0.42);
-  background: rgba(189, 216, 107, 0.08);
+  border-color: rgba(189, 216, 107, 0.5);
+  background: rgba(189, 216, 107, 0.11);
 }
 
 .gpc-button:hover,
@@ -265,8 +271,34 @@ textarea {
 
 .scene-hero .scene-shade {
   background:
-    linear-gradient(90deg, rgba(6, 7, 6, 0.88) 0%, rgba(6, 7, 6, 0.62) 38%, rgba(6, 7, 6, 0.26) 66%, rgba(6, 7, 6, 0.72) 100%),
-    linear-gradient(180deg, rgba(6, 7, 6, 0.42) 0%, rgba(6, 7, 6, 0.18) 46%, rgba(6, 7, 6, 0.88) 100%);
+    linear-gradient(90deg, rgba(6, 7, 6, 0.9) 0%, rgba(6, 7, 6, 0.64) 38%, rgba(6, 7, 6, 0.24) 66%, rgba(6, 7, 6, 0.74) 100%),
+    linear-gradient(180deg, rgba(6, 7, 6, 0.48) 0%, rgba(6, 7, 6, 0.16) 46%, rgba(6, 7, 6, 0.9) 100%);
+}
+
+.scene-hero::before {
+  content: "";
+  position: absolute;
+  left: max(1rem, calc((100vw - var(--max)) / 2));
+  right: max(1rem, calc((100vw - var(--max)) / 2));
+  bottom: 12.2rem;
+  z-index: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(189, 216, 107, 0.56), rgba(244, 240, 231, 0.14), transparent);
+  opacity: 0.82;
+}
+
+.scene-hero::after {
+  content: "";
+  position: absolute;
+  right: max(1rem, calc((100vw - var(--max)) / 2));
+  top: 8.8rem;
+  z-index: 1;
+  width: min(26vw, 18rem);
+  aspect-ratio: 1;
+  border-top: 1px solid rgba(244, 240, 231, 0.18);
+  border-right: 1px solid rgba(244, 240, 231, 0.08);
+  border-radius: 50%;
+  opacity: 0.7;
 }
 
 .scene-inner {
@@ -309,6 +341,9 @@ h2 {
 }
 
 .scene-hero h1 {
+  font-family: "Cabinet Grotesk", "Clash Display", "Satoshi", system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.06em;
   text-wrap: balance;
 }
 
@@ -374,6 +409,50 @@ h2 {
   transform: translateY(-50%);
 }
 
+.hero-motion {
+  position: absolute;
+  right: max(1rem, calc((100vw - var(--max)) / 2 + 2rem));
+  bottom: 18.8rem;
+  z-index: 2;
+  width: min(22vw, 15rem);
+  height: 4.6rem;
+  pointer-events: none;
+}
+
+.hero-motion span:first-child {
+  position: absolute;
+  inset: auto 0 1.1rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244, 240, 231, 0.22), rgba(189, 216, 107, 0.5));
+  transform: rotate(-12deg);
+  transform-origin: right;
+}
+
+.hero-motion span:last-child {
+  position: absolute;
+  right: 0;
+  bottom: 0.65rem;
+  width: 0.58rem;
+  height: 0.58rem;
+  border: 1px solid rgba(189, 216, 107, 0.9);
+  border-radius: 50%;
+  background: rgba(189, 216, 107, 0.34);
+  animation: heroBallPulse 2600ms var(--ease) infinite;
+}
+
+@keyframes heroBallPulse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: translate3d(-0.35rem, -0.16rem, 0) scale(1.18);
+    opacity: 1;
+  }
+}
+
 .gpc-marquee {
   overflow: hidden;
   border-block: 1px solid rgba(244, 240, 231, 0.08);
@@ -399,8 +478,152 @@ h2 {
   text-transform: uppercase;
 }
 
+.story {
+  position: relative;
+  min-height: 180svh;
+  padding: 8rem 0;
+  overflow: clip;
+  background: var(--bg);
+}
+
+.story-visual {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  margin-bottom: -100svh;
+  background-image: var(--story-image);
+  background-position: center;
+  background-size: cover;
+  transform: translate3d(0, var(--parallax, 0px), 0) scale(1.03);
+}
+
+.story-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6, 7, 6, 0.9), rgba(6, 7, 6, 0.48), rgba(6, 7, 6, 0.82)),
+    linear-gradient(180deg, rgba(6, 7, 6, 0.52), rgba(6, 7, 6, 0.82));
+}
+
+.story-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1fr);
+  gap: clamp(2rem, 8vw, 7rem);
+  align-items: start;
+}
+
+.story-sticky {
+  position: sticky;
+  top: 9rem;
+  min-height: 70svh;
+  display: grid;
+  align-content: center;
+}
+
+.story-sticky h2,
+.experience-head h2,
+.manifest h2,
+.events-tournaments h2 {
+  margin-top: 0.9rem;
+  font-size: clamp(2.8rem, 6vw, 6.6rem);
+  line-height: 0.9;
+}
+
+.story-steps {
+  display: grid;
+  gap: 28svh;
+  padding: 18svh 0;
+}
+
+.story-steps article {
+  max-width: 34rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(244, 240, 231, 0.16);
+}
+
+.story-steps span {
+  color: var(--green);
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+}
+
+.story-steps h3 {
+  margin-top: 1rem;
+  font-family: "Cabinet Grotesk", "Clash Display", "Satoshi", system-ui, sans-serif;
+  font-size: clamp(3.4rem, 7vw, 7rem);
+  font-weight: 300;
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+}
+
+.story-steps p {
+  max-width: 26rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.global-experience {
+  padding: 8rem 0;
+  background: #080908;
+}
+
+.experience-head {
+  margin-bottom: 2.4rem;
+}
+
+.experience-gallery {
+  width: min(100% - 2rem, 1440px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  gap: 1rem;
+}
+
+.gallery-shot {
+  position: relative;
+  min-height: 34rem;
+  margin: 0;
+  overflow: hidden;
+  background-image: var(--gallery-image);
+  background-position: center;
+  background-size: cover;
+}
+
+.gallery-shot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(189, 216, 107, 0.12), transparent 18rem),
+    linear-gradient(180deg, transparent, rgba(6, 7, 6, 0.72));
+}
+
+.gallery-shot-large {
+  grid-row: span 2;
+  min-height: 70rem;
+}
+
+.gallery-shot-wide {
+  grid-column: span 2;
+}
+
+.gallery-shot figcaption {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1rem;
+  z-index: 1;
+  color: rgba(244, 240, 231, 0.72);
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 .manifest {
-  min-height: 120svh;
+  min-height: 100svh;
   padding: 8rem 0;
   background: var(--bg);
 }
@@ -430,14 +653,37 @@ h2 {
 
 .manifest-copy {
   display: grid;
-  gap: 14rem;
-  padding-top: 16rem;
+  gap: 5rem;
+  padding-top: 10rem;
 }
 
 .manifest-copy p {
   max-width: 34rem;
   color: var(--muted);
   font-size: clamp(1.15rem, 2vw, 1.55rem);
+}
+
+.manifest-codes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  width: min(100%, 38rem);
+  border-top: 1px solid rgba(244, 240, 231, 0.1);
+  border-bottom: 1px solid rgba(244, 240, 231, 0.1);
+}
+
+.manifest-codes span {
+  min-height: 5.25rem;
+  display: grid;
+  place-items: center;
+  color: rgba(244, 240, 231, 0.72);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.manifest-codes span + span {
+  border-left: 1px solid rgba(244, 240, 231, 0.08);
 }
 
 .scene-panel {
@@ -529,6 +775,44 @@ h2 {
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
+}
+
+.events-tournaments {
+  position: relative;
+  padding: 8rem 0;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(244, 240, 231, 0.045), transparent 46%),
+    #080908;
+}
+
+.events-tournaments::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 240, 231, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 240, 231, 0.03) 1px, transparent 1px);
+  background-size: 90px 90px;
+  mask-image: linear-gradient(90deg, transparent, black, transparent);
+}
+
+.events-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.6fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+}
+
+.events-grid p {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.events-grid .gpc-button {
+  width: fit-content;
 }
 
 .bar-bg {
@@ -770,16 +1054,57 @@ h2 {
     text-align: center;
   }
 
+  .story-grid,
   .manifest-grid,
   .bar-content,
+  .events-grid,
   .location-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
+  .story {
+    min-height: auto;
+  }
+
+  .story-visual {
+    position: absolute;
+    inset: 0;
+    margin-bottom: 0;
+  }
+
+  .story-sticky {
+    position: static;
+    min-height: auto;
+  }
+
+  .story-steps {
+    gap: 4rem;
+    padding: 4rem 0 0;
+  }
+
+  .experience-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-shot-large,
+  .gallery-shot-wide {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 34rem;
+  }
+
   .manifest-copy {
     gap: 4rem;
     padding-top: 0;
+  }
+
+  .manifest-codes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .manifest-codes span:nth-child(odd) {
+    border-left: 0;
   }
 
   .manifest-sticky {
@@ -838,6 +1163,12 @@ h2 {
     display: none;
   }
 
+  .scene-hero::before,
+  .scene-hero::after,
+  .hero-motion {
+    display: none;
+  }
+
   .gpc-actions,
   .gpc-button {
     width: 100%;
@@ -847,6 +1178,32 @@ h2 {
   .bar-content,
   .contact-grid {
     padding-block: 6rem;
+  }
+
+  .story {
+    padding: 6rem 0;
+  }
+
+  .story-steps h3 {
+    font-size: clamp(3rem, 17vw, 4.8rem);
+  }
+
+  .experience-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-shot,
+  .gallery-shot-large,
+  .gallery-shot-wide {
+    min-height: 24rem;
+  }
+
+  .events-grid {
+    align-items: start;
+  }
+
+  .events-grid .gpc-button {
+    width: 100%;
   }
 
   .manifest h2,

@@ -40,7 +40,7 @@ menu?.querySelectorAll("a").forEach((link) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".scene-inner > *, .manifest-sticky, .manifest-copy p, .scene-panel > *, .experience-strip article, .bar-content > *, .sponsors-head, .sponsor-marquee, .location-grid > *, .contact-grid > *"
+  ".scene-inner > *, .story-sticky, .story-steps article, .experience-head, .gallery-shot, .manifest-sticky, .manifest-copy p, .manifest-codes, .bar-content > *, .events-grid > *, .sponsors-head, .sponsor-marquee, .location-grid > *, .contact-grid > *"
 );
 
 revealTargets.forEach((element, index) => {
