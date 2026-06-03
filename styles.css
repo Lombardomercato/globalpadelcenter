@@ -11,8 +11,9 @@
   --max: 1180px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --hero-image:
+    url("./assets/hero-global-hero.jpg"),
     linear-gradient(135deg, rgba(244, 240, 231, 0.08), rgba(244, 240, 231, 0)),
-    radial-gradient(circle at 72% 18%, rgba(189, 216, 107, 0.2), transparent 24rem),
+    radial-gradient(circle at 72% 18%, rgba(189, 216, 107, 0.14), transparent 24rem),
     linear-gradient(140deg, #151812, #080908 58%, #111914);
   --court-image:
     linear-gradient(135deg, rgba(109, 133, 143, 0.34), transparent 45%),
@@ -226,6 +227,7 @@ textarea {
 
 .scene-hero .scene-bg {
   background-image: var(--hero-image);
+  background-position: center;
 }
 
 .scene-court .scene-bg {
@@ -261,9 +263,15 @@ textarea {
     linear-gradient(180deg, rgba(6, 7, 6, 0.46), rgba(6, 7, 6, 0.2) 45%, rgba(6, 7, 6, 0.82));
 }
 
+.scene-hero .scene-shade {
+  background:
+    linear-gradient(90deg, rgba(6, 7, 6, 0.88) 0%, rgba(6, 7, 6, 0.62) 38%, rgba(6, 7, 6, 0.26) 66%, rgba(6, 7, 6, 0.72) 100%),
+    linear-gradient(180deg, rgba(6, 7, 6, 0.42) 0%, rgba(6, 7, 6, 0.18) 46%, rgba(6, 7, 6, 0.88) 100%);
+}
+
 .scene-inner {
   min-height: 100svh;
-  padding: 8.8rem 0 4rem;
+  padding: 9rem 0 4.2rem;
   display: grid;
   align-content: end;
 }
@@ -293,16 +301,20 @@ h2 {
 }
 
 .scene h1 {
-  max-width: 9.2ch;
-  margin-top: 1rem;
-  font-size: clamp(4.4rem, 11vw, 11rem);
-  line-height: 0.78;
+  max-width: 9.8ch;
+  margin-top: 1.05rem;
+  font-size: clamp(5rem, 13.4vw, 14.5rem);
+  line-height: 0.76;
   text-transform: uppercase;
 }
 
+.scene-hero h1 {
+  text-wrap: balance;
+}
+
 .hero-bottom {
-  width: min(100%, 850px);
-  margin-top: 2rem;
+  width: min(100%, 940px);
+  margin-top: 2.25rem;
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -310,9 +322,9 @@ h2 {
 }
 
 .hero-bottom p {
-  max-width: 28rem;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  max-width: 36rem;
+  color: rgba(244, 240, 231, 0.78);
+  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
 }
 
 .gpc-actions {
@@ -330,6 +342,36 @@ h2 {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   writing-mode: vertical-rl;
+}
+
+.hero-facts {
+  width: min(100%, 940px);
+  margin-top: 2.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(244, 240, 231, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.6rem;
+}
+
+.hero-facts span {
+  position: relative;
+  color: rgba(244, 240, 231, 0.72);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-facts span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -0.9rem;
+  width: 0.22rem;
+  height: 0.22rem;
+  border-radius: 50%;
+  background: var(--green);
+  transform: translateY(-50%);
 }
 
 .gpc-marquee {
@@ -778,11 +820,22 @@ h2 {
   }
 
   .scene h1 {
-    font-size: clamp(3.65rem, 18vw, 5.1rem);
+    font-size: clamp(4.05rem, 18vw, 5.6rem);
+    line-height: 0.8;
   }
 
   .hero-bottom {
     display: grid;
+    gap: 1.35rem;
+  }
+
+  .hero-facts {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .hero-facts span:not(:last-child)::after {
+    display: none;
   }
 
   .gpc-actions,
