@@ -4,7 +4,6 @@ const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const menu = document.querySelector("[data-menu]");
 const progress = document.querySelector("[data-progress]");
-const contactForm = document.querySelector("[data-contact-form]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const updateScrollState = () => {
@@ -81,21 +80,4 @@ document.querySelectorAll("[data-tilt]").forEach((card) => {
     card.style.setProperty("--tilt-x", "0deg");
     card.style.setProperty("--tilt-y", "0deg");
   });
-});
-
-contactForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const data = new FormData(contactForm);
-  const nombre = String(data.get("nombre") || "").trim();
-  const motivo = String(data.get("motivo") || "").trim();
-  const mensaje = String(data.get("mensaje") || "").trim();
-  const text = [
-    "Hola Global Padel Center, quiero hacer una consulta.",
-    nombre ? `Nombre: ${nombre}` : "",
-    motivo ? `Motivo: ${motivo}` : "",
-    mensaje ? `Mensaje: ${mensaje}` : ""
-  ].filter(Boolean).join("\n");
-
-  window.open(`https://wa.me/543417560704?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
 });
