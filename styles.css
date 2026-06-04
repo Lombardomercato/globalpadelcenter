@@ -10,26 +10,9 @@
   --blue: #6d858f;
   --max: 1180px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --hero-image:
-    url("./assets/hero-global-hero.jpg"),
-    linear-gradient(135deg, rgba(244, 240, 231, 0.08), rgba(244, 240, 231, 0)),
-    radial-gradient(circle at 72% 18%, rgba(189, 216, 107, 0.18), transparent 24rem),
-    linear-gradient(140deg, #151812, #080908 58%, #111914);
-  --court-image:
-    linear-gradient(135deg, rgba(109, 133, 143, 0.34), transparent 45%),
-    linear-gradient(160deg, #101815, #060706 70%);
-  --community-image:
-    linear-gradient(135deg, rgba(244, 240, 231, 0.1), transparent 40%),
-    linear-gradient(160deg, #191610, #070807 62%);
-  --bar-image:
-    linear-gradient(135deg, rgba(189, 216, 107, 0.12), transparent 48%),
-    linear-gradient(150deg, #17120f, #070807 62%);
   --final-image:
-    linear-gradient(135deg, rgba(109, 133, 143, 0.28), transparent 46%),
-    linear-gradient(150deg, #151812, #060706 64%);
-  --story-image:
-    linear-gradient(135deg, rgba(244, 240, 231, 0.08), transparent 42%),
-    linear-gradient(160deg, #141812, #060706 70%);
+    url("./assets/story-conecta.jpg"),
+    #060706;
   --story-competi-image:
     url("./assets/story-competi.jpg"),
     url("./assets/hero-global-hero.jpg"),
@@ -46,9 +29,6 @@
     url("./assets/story-quedate.jpg"),
     linear-gradient(135deg, rgba(189, 216, 107, 0.12), transparent 48%),
     linear-gradient(150deg, #17120f, #070807 62%);
-  --gallery-image:
-    linear-gradient(135deg, rgba(109, 133, 143, 0.2), transparent 48%),
-    linear-gradient(160deg, #121611, #060706 70%);
 }
 
 *,
@@ -73,16 +53,6 @@ body {
   font-weight: 300;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a {
@@ -258,22 +228,6 @@ textarea {
 
 .scene-final .scene-bg {
   background-image: var(--final-image);
-}
-
-.scene-bg::after,
-.bar-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(244, 240, 231, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 240, 231, 0.035) 1px, transparent 1px);
-  background-size: 84px 84px;
-  mask-image: linear-gradient(180deg, black, transparent 82%);
-}
-
-.scene-hero .scene-bg::after {
-  display: none;
 }
 
 .scene-shade {
@@ -483,8 +437,6 @@ h2 {
   overflow: hidden;
   border-block: 1px solid rgba(244, 240, 231, 0.08);
   background: #070807;
-  transform: rotate(-1.1deg) scaleX(1.03);
-  transform-origin: center;
 }
 
 .marquee-track,
@@ -513,142 +465,7 @@ h2 {
 
 .story {
   position: relative;
-  min-height: 520svh;
-  overflow: clip;
   background: #060706;
-  isolation: isolate;
-}
-
-.story::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(circle at 12% 24%, rgba(109, 133, 143, 0.16), transparent 24rem),
-    linear-gradient(180deg, #060706 0%, #080908 48%, #060706 100%);
-}
-
-.story-stage {
-  position: sticky;
-  top: 0;
-  min-height: 100svh;
-  overflow: hidden;
-}
-
-.story-frame {
-  position: absolute;
-  inset: 8svh 6vw 8svh 34vw;
-  margin: 0;
-  opacity: 0;
-  background-size: cover;
-  background-position: center;
-  filter: saturate(0.92) contrast(1.06);
-  transform: translate3d(4vw, 0, 0) scale(1.08) rotate(-1.2deg);
-  transition: opacity 700ms var(--ease), transform 1100ms var(--ease), filter 700ms ease;
-  will-change: opacity, transform;
-}
-
-.story-frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(6, 7, 6, 0.38), transparent 44%),
-    linear-gradient(180deg, rgba(6, 7, 6, 0.12), rgba(6, 7, 6, 0.64));
-}
-
-.story[data-active-story="competi"] .story-frame-competi,
-.story[data-active-story="entrena"] .story-frame-entrena,
-.story[data-active-story="conecta"] .story-frame-conecta,
-.story[data-active-story="quedate"] .story-frame-quedate {
-  opacity: 1;
-  filter: saturate(1) contrast(1.12);
-  transform: translate3d(0, var(--story-shift, 0px), 0) scale(1.01) rotate(-1.2deg);
-}
-
-.story-frame-competi {
-  background-image: var(--story-competi-image);
-  background-position: 44% center;
-}
-
-.story-frame-entrena {
-  background-image: var(--story-entrena-image);
-  background-position: 50% center;
-}
-
-.story-frame-conecta {
-  background-image: var(--story-conecta-image);
-  background-position: 58% center;
-}
-
-.story-frame-quedate {
-  background-image: var(--story-quedate-image);
-  background-position: 50% 38%;
-}
-
-.story-vignette {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, #060706 0%, rgba(6, 7, 6, 0.92) 25%, rgba(6, 7, 6, 0.42) 54%, rgba(6, 7, 6, 0.88) 100%),
-    linear-gradient(180deg, #060706 0%, transparent 20%, transparent 72%, #060706 100%);
-}
-
-.story-orbit {
-  position: absolute;
-  right: -8rem;
-  top: 16svh;
-  width: clamp(24rem, 44vw, 44rem);
-  aspect-ratio: 1;
-  border: 1px solid rgba(189, 216, 107, 0.34);
-  border-radius: 50%;
-  opacity: 0.38;
-  transform: rotate(-22deg) scaleX(0.72);
-}
-
-.story-orbit::before,
-.story-orbit::after {
-  content: "";
-  position: absolute;
-  border-radius: inherit;
-}
-
-.story-orbit::before {
-  inset: 18%;
-  border: 1px solid rgba(109, 133, 143, 0.22);
-}
-
-.story-orbit::after {
-  width: 0.66rem;
-  height: 0.66rem;
-  top: 18%;
-  right: 20%;
-  background: var(--green);
-  box-shadow: 0 0 1.8rem rgba(189, 216, 107, 0.45);
-}
-
-.story-index {
-  position: absolute;
-  right: max(1rem, calc((100vw - var(--max)) / 2));
-  bottom: 3.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  color: rgba(244, 240, 231, 0.6);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-}
-
-.story-index::before {
-  content: "";
-  width: 5rem;
-  height: 1px;
-  background: rgba(244, 240, 231, 0.22);
-}
-
-.story-index span:first-child {
-  color: var(--green);
 }
 
 .story-eyebrow {
@@ -660,13 +477,11 @@ h2 {
 
 .story-intro {
   position: relative;
-  z-index: 2;
-  min-height: 100svh;
-  margin-top: -100svh;
+  min-height: 82svh;
   display: grid;
   align-content: end;
-  padding-bottom: clamp(6rem, 10vw, 10rem);
-  pointer-events: none;
+  padding-top: 10rem;
+  padding-bottom: clamp(5rem, 9vw, 9rem);
 }
 
 .story-intro h2 {
@@ -690,18 +505,57 @@ h2 {
 
 .story-chapters {
   position: relative;
-  z-index: 3;
-  margin-top: -14svh;
 }
 
 .story-chapter {
-  min-height: 104svh;
+  position: relative;
+  min-height: 100svh;
   display: grid;
-  align-items: center;
+  align-items: end;
+  overflow: hidden;
+  background-color: #060706;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.story-chapter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6, 7, 6, 0.82) 0%, rgba(6, 7, 6, 0.36) 46%, rgba(6, 7, 6, 0.72) 100%),
+    linear-gradient(180deg, rgba(6, 7, 6, 0.08) 0%, rgba(6, 7, 6, 0.22) 52%, rgba(6, 7, 6, 0.82) 100%);
+}
+
+.story-chapter-competi {
+  background-image: var(--story-competi-image);
+  background-position: 44% center;
+}
+
+.story-chapter-entrena {
+  background-image: var(--story-entrena-image);
+  background-position: center;
+}
+
+.story-chapter-conecta {
+  background-image: var(--story-conecta-image);
+  background-position: 58% center;
+}
+
+.story-chapter-quedate {
+  background-image: var(--story-quedate-image);
+  background-position: center 38%;
 }
 
 .story-chapter-inner {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  padding-top: 8rem;
+  padding-bottom: clamp(4rem, 8vw, 8rem);
   display: grid;
+  align-content: end;
   justify-items: start;
 }
 
@@ -736,20 +590,6 @@ h2 {
   line-height: 1.28;
 }
 
-.story-chapter:nth-child(odd) p {
-  border-left: 1px solid rgba(189, 216, 107, 0.45);
-  padding-left: 1rem;
-}
-
-.story-chapter:nth-child(even) p {
-  border-right: 1px solid rgba(189, 216, 107, 0.45);
-  padding-right: 1rem;
-}
-
-.story-chapter.is-active h3 {
-  color: var(--ink);
-}
-
 .bar-story h2,
 .sponsors h2,
 .location h2,
@@ -773,12 +613,13 @@ h2 {
 
 .events-tournaments {
   position: relative;
-  min-height: 88svh;
+  min-height: 100svh;
   padding: 8rem 0;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(244, 240, 231, 0.045), transparent 46%),
-    #080908;
+  background-image: var(--story-competi-image);
+  background-position: 48% center;
+  background-size: cover;
+  background-attachment: fixed;
   isolation: isolate;
 }
 
@@ -787,33 +628,15 @@ h2 {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image:
-    linear-gradient(rgba(244, 240, 231, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244, 240, 231, 0.03) 1px, transparent 1px);
-  background-size: 90px 90px;
-  mask-image: linear-gradient(90deg, transparent, black, transparent);
-}
-
-.events-tournaments::after {
-  content: "";
-  position: absolute;
-  right: -10vw;
-  top: 10%;
-  z-index: 0;
-  width: min(62vw, 56rem);
-  height: 76%;
-  background-image:
-    linear-gradient(90deg, rgba(8, 9, 8, 0.1), rgba(8, 9, 8, 0.76)),
-    var(--story-competi-image);
-  background-size: cover;
-  background-position: 48% center;
-  opacity: 0.42;
-  transform: rotate(2.4deg);
+  background:
+    linear-gradient(90deg, rgba(6, 7, 6, 0.86) 0%, rgba(6, 7, 6, 0.45) 52%, rgba(6, 7, 6, 0.78) 100%),
+    linear-gradient(180deg, rgba(6, 7, 6, 0.16), rgba(6, 7, 6, 0.84));
 }
 
 .events-grid {
   position: relative;
   z-index: 1;
+  min-height: calc(100svh - 16rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.6fr);
   gap: clamp(2rem, 6vw, 5rem);
@@ -948,39 +771,34 @@ h2 {
   justify-content: space-between;
 }
 
-.contact-actions .gpc-button::after {
-  content: "↗";
-  color: var(--green);
-}
-
 .contact-actions .contact-main {
   min-height: 4.4rem;
   font-size: 1.05rem;
 }
 
 .gpc-footer {
-  padding: clamp(3rem, 6vw, 5rem) 0 1.15rem;
+  padding: 1.35rem 0 0.8rem;
   border-top: 1px solid rgba(244, 240, 231, 0.08);
   background: #060706;
 }
 
 .footer-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(11rem, 0.48fr) minmax(18rem, 0.62fr);
-  align-items: start;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(15rem, 0.92fr) minmax(14rem, 0.72fr) minmax(17rem, 0.78fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.8rem);
 }
 
 .footer-brand img {
-  width: 7.2rem;
+  width: 5.9rem;
   height: auto;
 }
 
 .footer-brand p {
-  max-width: 24rem;
-  margin-top: 1.35rem;
+  max-width: 20rem;
+  margin-top: 0.7rem;
   color: rgba(244, 240, 231, 0.72);
-  font-size: clamp(1rem, 1.4vw, 1.22rem);
-  line-height: 1.34;
+  font-size: 0.88rem;
+  line-height: 1.28;
 }
 
 .footer-links,
@@ -991,12 +809,12 @@ h2 {
 }
 
 .footer-links {
-  gap: 0.65rem;
+  gap: 0.42rem;
 }
 
 .footer-links span,
 .footer-newsletter label {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.16rem;
   color: var(--green);
   font-size: 0.72rem;
   letter-spacing: 0.18em;
@@ -1020,15 +838,15 @@ h2 {
 }
 
 .footer-newsletter {
-  gap: 0.85rem;
+  gap: 0.5rem;
 }
 
 .footer-newsletter > div {
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.5rem;
-  padding: 0.36rem;
+  gap: 0.36rem;
+  padding: 0.28rem;
   border: 1px solid rgba(244, 240, 231, 0.12);
   border-radius: 999px;
   background: rgba(244, 240, 231, 0.035);
@@ -1044,7 +862,7 @@ h2 {
 
 .footer-newsletter input {
   width: 100%;
-  padding: 0.72rem 0.9rem;
+  padding: 0.58rem 0.78rem;
   outline: 0;
 }
 
@@ -1053,8 +871,8 @@ h2 {
 }
 
 .footer-newsletter button {
-  min-height: 2.55rem;
-  padding: 0 1rem;
+  min-height: 2.2rem;
+  padding: 0 0.9rem;
   border: 1px solid rgba(189, 216, 107, 0.42);
   background: rgba(189, 216, 107, 0.11);
   color: var(--ink);
@@ -1062,8 +880,8 @@ h2 {
 }
 
 .footer-bottom {
-  margin-top: clamp(2.2rem, 5vw, 4rem);
-  padding-top: 1rem;
+  margin-top: 0.9rem;
+  padding-top: 0.65rem;
   border-top: 1px solid rgba(244, 240, 231, 0.08);
 }
 
@@ -1131,47 +949,12 @@ h2 {
   }
 
   .story {
-    min-height: auto;
-    padding: 0 0 4rem;
-  }
-
-  .story-stage {
-    position: sticky;
-    top: 0;
-    min-height: 78svh;
-  }
-
-  .story-frame {
-    inset: 8svh 1rem 10svh;
-    transform: translate3d(0, 2rem, 0) scale(1.04);
-  }
-
-  .story[data-active-story="competi"] .story-frame-competi,
-  .story[data-active-story="entrena"] .story-frame-entrena,
-  .story[data-active-story="conecta"] .story-frame-conecta,
-  .story[data-active-story="quedate"] .story-frame-quedate {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  .story-vignette {
-    background:
-      linear-gradient(180deg, #060706 0%, rgba(6, 7, 6, 0.24) 20%, rgba(6, 7, 6, 0.72) 68%, #060706 100%),
-      linear-gradient(90deg, rgba(6, 7, 6, 0.76), rgba(6, 7, 6, 0.16));
-  }
-
-  .story-orbit {
-    right: -13rem;
-    top: 18svh;
-  }
-
-  .story-index {
-    right: 1rem;
-    bottom: 2rem;
+    padding: 0;
   }
 
   .story-intro {
     min-height: 78svh;
-    margin-top: -78svh;
+    padding-top: 8rem;
     padding-bottom: 4rem;
   }
 
@@ -1179,14 +962,14 @@ h2 {
     font-size: clamp(3.6rem, 18vw, 6.2rem);
   }
 
-  .story-chapters {
-    margin-top: -4rem;
+  .story-chapter {
+    min-height: 92svh;
+    align-items: end;
+    background-attachment: scroll;
   }
 
-  .story-chapter {
-    min-height: 82svh;
-    align-items: end;
-    padding-bottom: 8rem;
+  .events-tournaments {
+    background-attachment: scroll;
   }
 
   .story-chapter-alt .story-chapter-inner {
@@ -1201,10 +984,6 @@ h2 {
   .story-chapter p,
   .story-chapter:nth-child(even) p {
     max-width: 18rem;
-    border-left: 1px solid rgba(189, 216, 107, 0.45);
-    border-right: 0;
-    padding-left: 1rem;
-    padding-right: 0;
   }
 
 }
@@ -1302,10 +1081,6 @@ h2 {
     padding-block: 6rem;
   }
 
-  .story-frame {
-    inset: 10svh 0.8rem 12svh;
-  }
-
   .story-intro h2 {
     font-size: clamp(3.25rem, 18.5vw, 5.4rem);
   }
@@ -1343,8 +1118,19 @@ h2 {
     gap: 2.2rem;
   }
 
+  .gpc-footer {
+    padding: 3rem 0 1.15rem;
+  }
+
+  .footer-brand img {
+    width: 7.2rem;
+  }
+
   .footer-brand p {
     max-width: none;
+    margin-top: 1.35rem;
+    font-size: clamp(1rem, 1.4vw, 1.22rem);
+    line-height: 1.34;
     text-align: left;
   }
 
@@ -1353,8 +1139,18 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .footer-newsletter input {
+    padding: 0.72rem 0.9rem;
+  }
+
   .footer-newsletter button {
     width: 100%;
+    min-height: 2.55rem;
+  }
+
+  .footer-bottom {
+    margin-top: 2.2rem;
+    padding-top: 1rem;
   }
 }
 
