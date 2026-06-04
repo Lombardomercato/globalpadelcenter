@@ -39,7 +39,7 @@ menu?.querySelectorAll("a").forEach((link) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".scene-inner > *, .story-sticky, .story-steps article, .experience-head, .gallery-shot, .manifest-sticky, .manifest-copy p, .manifest-codes, .bar-content > *, .events-grid > *, .sponsors-head, .sponsor-marquee, .location-grid > *, .contact-grid > *"
+  ".scene-inner > *, .story-sticky, .story-steps article, .experience-head, .gallery-shot, .manifest-sticky, .manifest-copy p, .bar-content > *, .events-grid > *, .sponsors-head, .sponsor-marquee, .location-grid > *, .contact-grid > *"
 );
 
 revealTargets.forEach((element, index) => {
@@ -62,6 +62,36 @@ if (reducedMotion) {
   );
 
   revealTargets.forEach((element) => observer.observe(element));
+}
+
+const storySection = document.querySelector("[data-story-section]");
+const storySteps = document.querySelectorAll("[data-story-step]");
+
+if (storySection && storySteps.length) {
+  const setStory = (story) => {
+    storySection.dataset.story = story;
+  };
+
+  const updateStoryStep = () => {
+    const viewportAnchor = window.innerHeight * 0.52;
+    let activeStep = storySteps[0];
+    let activeDistance = Number.POSITIVE_INFINITY;
+
+    storySteps.forEach((step) => {
+      const rect = step.getBoundingClientRect();
+      const distance = Math.abs(rect.top + rect.height * 0.42 - viewportAnchor);
+      if (distance < activeDistance) {
+        activeStep = step;
+        activeDistance = distance;
+      }
+    });
+
+    setStory(activeStep.dataset.story);
+  };
+
+  updateStoryStep();
+  window.addEventListener("scroll", updateStoryStep, { passive: true });
+  window.addEventListener("resize", updateStoryStep);
 }
 
 document.querySelectorAll("[data-tilt]").forEach((card) => {
