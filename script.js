@@ -39,7 +39,7 @@ menu?.querySelectorAll("a").forEach((link) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".scene-inner > *, .gpc-marquee, .story-intro, .story-chapter-inner, .bar-content > *, .events-grid > *, .sponsors-head, .sponsor-marquee, .location-grid > *, .contact-grid > *"
+  ".scene-inner > *, .gpc-marquee, .story-intro, .story-chapter-inner, .gallery-head, .gallery-photo, .bar-content > *, .events-grid > *, .sponsors-head, .sponsor-marquee, .location-grid > *, .contact-grid > *"
 );
 
 revealTargets.forEach((element, index) => {
