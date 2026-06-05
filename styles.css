@@ -218,9 +218,9 @@ textarea {
 .scene-hero .scene-bg {
   inset: 0;
   background-image: image-set(
-    url("./assets/optimized/hero-dsc0291-desktop.avif") type("image/avif"),
-    url("./assets/optimized/hero-dsc0291-desktop.webp") type("image/webp"),
-    url("./assets/optimized/hero-dsc0291-desktop.jpg") type("image/jpeg")
+    url("./assets/optimized/hero-global-hero-desktop.avif") type("image/avif"),
+    url("./assets/optimized/hero-global-hero-desktop.webp") type("image/webp"),
+    url("./assets/optimized/hero-global-hero-desktop.jpg") type("image/jpeg")
   );
   background-color: #060706;
   background-position: right center;
@@ -243,9 +243,9 @@ textarea {
 
 .scene-final.is-bg-loaded .scene-bg {
   background-image: image-set(
-    url("./assets/optimized/story-conecta-desktop.avif") type("image/avif"),
-    url("./assets/optimized/story-conecta-desktop.webp") type("image/webp"),
-    url("./assets/optimized/story-conecta-desktop.jpg") type("image/jpeg")
+    url("./assets/optimized/hero-dsc0291-desktop.avif") type("image/avif"),
+    url("./assets/optimized/hero-dsc0291-desktop.webp") type("image/webp"),
+    url("./assets/optimized/hero-dsc0291-desktop.jpg") type("image/jpeg")
   );
 }
 
@@ -1163,6 +1163,14 @@ h2 {
   letter-spacing: 0;
 }
 
+.location-details .location-parking {
+  color: rgba(244, 240, 231, 0.86);
+}
+
+.location-details .location-parking::before {
+  color: var(--blue);
+}
+
 .location .gpc-actions {
   margin-top: 2.35rem;
 }
@@ -1268,8 +1276,14 @@ h2 {
 
 .footer-grid {
   grid-template-columns: minmax(12rem, 1fr) minmax(10rem, 1fr) minmax(20rem, 1fr);
-  align-items: start;
+  align-items: stretch;
   gap: clamp(1.5rem, 5vw, 5.2rem);
+}
+
+.footer-brand,
+.footer-links,
+.footer-newsletter {
+  min-height: 6.25rem;
 }
 
 .footer-brand img {
@@ -1282,7 +1296,7 @@ h2 {
   margin-top: 0.55rem;
   color: rgba(244, 240, 231, 0.72);
   font-size: 0.8rem;
-  line-height: 1.28;
+  line-height: 1.32;
 }
 
 .footer-brand p > span {
@@ -1297,7 +1311,7 @@ h2 {
 }
 
 .footer-brand p > span + span {
-  margin-top: 0.32rem;
+  margin-top: 0.22rem;
   color: rgba(244, 240, 231, 0.56);
 }
 
@@ -1306,6 +1320,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .footer-links,
@@ -1313,7 +1328,7 @@ h2 {
   gap: 0.28rem;
 }
 
-.footer-links span,
+.footer-links > span,
 .footer-newsletter label {
   margin-bottom: 0.08rem;
   color: var(--green);
@@ -1333,14 +1348,14 @@ h2 {
 }
 
 .footer-newsletter h3 {
-  max-width: 20rem;
-  margin: 0.05rem 0 0.35rem;
-  color: var(--ink);
-  font-family: "Clash Display", "Satoshi", system-ui, sans-serif;
-  font-size: clamp(1.05rem, 1.45vw, 1.35rem);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  max-width: 16rem;
+  margin: 0 0 0.26rem;
+  color: rgba(244, 240, 231, 0.72);
+  font-family: "Satoshi", system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: 0;
 }
 
 .gpc-footer a,
@@ -1352,11 +1367,26 @@ h2 {
 }
 
 .gpc-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   transition: color 180ms ease;
 }
 
 .gpc-footer a:hover {
   color: var(--ink);
+}
+
+.footer-link-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+  color: var(--blue);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .footer-newsletter {
@@ -1367,10 +1397,10 @@ h2 {
   width: min(100%, 20.5rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.32rem;
-  padding: 0.25rem;
+  gap: 0.24rem;
+  padding: 0.2rem;
   border: 1px solid rgba(244, 240, 231, 0.13);
-  border-radius: 0.92rem;
+  border-radius: 0.78rem;
   background: rgba(244, 240, 231, 0.035);
 }
 
@@ -1384,7 +1414,7 @@ h2 {
 
 .footer-newsletter input {
   width: 100%;
-  padding: 0.52rem 0.68rem;
+  padding: 0.44rem 0.58rem;
   outline: 0;
 }
 
@@ -1393,11 +1423,12 @@ h2 {
 }
 
 .footer-newsletter button {
-  min-height: 2.1rem;
-  padding: 0 0.72rem;
+  min-height: 2.75rem;
+  padding: 0 0.62rem;
   border: 1px solid rgba(189, 216, 107, 0.42);
   background: rgba(189, 216, 107, 0.11);
   color: var(--ink);
+  font-size: 0.76rem;
   cursor: pointer;
 }
 
@@ -1558,6 +1589,11 @@ h2 {
 }
 
 @media (max-width: 680px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   .gpc-header {
     top: 0.6rem;
   }
@@ -1630,9 +1666,9 @@ h2 {
   .scene-hero .scene-bg {
     inset: -8%;
     background-image: image-set(
-      url("./assets/optimized/hero-dsc0291-mobile.avif") type("image/avif"),
-      url("./assets/optimized/hero-dsc0291-mobile.webp") type("image/webp"),
-      url("./assets/optimized/hero-dsc0291-mobile.jpg") type("image/jpeg")
+      url("./assets/optimized/hero-global-hero-mobile.avif") type("image/avif"),
+      url("./assets/optimized/hero-global-hero-mobile.webp") type("image/webp"),
+      url("./assets/optimized/hero-global-hero-mobile.jpg") type("image/jpeg")
     );
     background-position: 63% center;
     background-size: auto 110%;
@@ -1641,9 +1677,9 @@ h2 {
 
   .scene-final.is-bg-loaded .scene-bg {
     background-image: image-set(
-      url("./assets/optimized/story-conecta-mobile.avif") type("image/avif"),
-      url("./assets/optimized/story-conecta-mobile.webp") type("image/webp"),
-      url("./assets/optimized/story-conecta-mobile.jpg") type("image/jpeg")
+      url("./assets/optimized/hero-dsc0291-mobile.avif") type("image/avif"),
+      url("./assets/optimized/hero-dsc0291-mobile.webp") type("image/webp"),
+      url("./assets/optimized/hero-dsc0291-mobile.jpg") type("image/jpeg")
     );
   }
 
@@ -1792,12 +1828,25 @@ h2 {
   .gallery-hint {
     display: inline-flex;
     align-items: center;
+    gap: 0.65rem;
     min-height: 2.75rem;
-    margin-top: 0.8rem;
-    color: rgba(244, 240, 231, 0.58);
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
+    margin-top: 1rem;
+    padding: 0.58rem 0.86rem;
+    border: 1px solid rgba(22, 143, 212, 0.36);
+    border-radius: 999px;
+    background: rgba(22, 143, 212, 0.1);
+    color: rgba(244, 240, 231, 0.78);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+  }
+
+  .gallery-hint::after {
+    content: "->";
+    color: var(--blue);
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    transform: translateX(0.08rem);
   }
 
   .experience-gallery {
@@ -2014,28 +2063,77 @@ h2 {
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 2.2rem;
+    gap: 0.72rem;
   }
 
   .gpc-footer {
-    padding: 3rem 0 1.15rem;
+    padding: 1rem 0 0.7rem;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-newsletter {
+    min-height: 0;
   }
 
   .footer-brand img {
-    width: 7.2rem;
+    width: 5rem;
   }
 
   .footer-brand p {
     max-width: none;
-    margin-top: 1.35rem;
-    font-size: clamp(1rem, 1.4vw, 1.22rem);
-    line-height: 1.34;
+    margin-top: 0.42rem;
+    font-size: 0.76rem;
+    line-height: 1.22;
     text-align: left;
+  }
+
+  .footer-brand p > span:first-child {
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+  }
+
+  .footer-brand p > span + span {
+    margin-top: 0.12rem;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    justify-content: start;
+    gap: 0 0.62rem;
+  }
+
+  .footer-links > span {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+    font-size: 0.64rem;
+  }
+
+  .footer-newsletter {
+    gap: 0.08rem;
+  }
+
+  .footer-newsletter label {
+    margin-bottom: 0;
+    font-size: 0.64rem;
+  }
+
+  .footer-newsletter h3 {
+    max-width: 15.5rem;
+    margin-bottom: 0.16rem;
+    font-size: 0.78rem;
+    line-height: 1.22;
+  }
+
+  .footer-link-icon {
+    width: 1.1rem;
+    height: 1.1rem;
   }
 
   .footer-newsletter > div {
     width: 100%;
-    grid-template-columns: 1fr;
   }
 
   .footer-links a {
@@ -2043,6 +2141,9 @@ h2 {
     min-height: 2.75rem;
     display: inline-flex;
     align-items: center;
+    gap: 0.44rem;
+    padding: 0;
+    font-size: 0.74rem;
   }
 
   .footer-bottom a {
@@ -2062,12 +2163,12 @@ h2 {
   }
 
   .footer-newsletter button {
-    width: 100%;
+    width: auto;
   }
 
   .footer-bottom {
-    margin-top: 2.2rem;
-    padding-top: 1rem;
+    margin-top: 0.62rem;
+    padding-top: 0.52rem;
   }
 }
 
