@@ -1,0 +1,482 @@
+[
+  {
+    "source": "assets\\hero-global-hero.jpg",
+    "before": "6.78 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\hero-global-hero-desktop.avif",
+        "size": "220 KB"
+      },
+      {
+        "file": "assets\\optimized\\hero-global-hero-desktop.webp",
+        "size": "253 KB"
+      },
+      {
+        "file": "assets\\optimized\\hero-global-hero-desktop.jpg",
+        "size": "323 KB"
+      },
+      {
+        "file": "assets\\optimized\\hero-global-hero-mobile.avif",
+        "size": "69 KB"
+      },
+      {
+        "file": "assets\\optimized\\hero-global-hero-mobile.webp",
+        "size": "91 KB"
+      },
+      {
+        "file": "assets\\optimized\\hero-global-hero-mobile.jpg",
+        "size": "113 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\story-competi.jpg",
+    "before": "12.69 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\story-competi-desktop.avif",
+        "size": "450 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-competi-desktop.webp",
+        "size": "367 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-competi-desktop.jpg",
+        "size": "347 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-competi-mobile.avif",
+        "size": "80 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-competi-mobile.webp",
+        "size": "80 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-competi-mobile.jpg",
+        "size": "95 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\story-entrena.jpg",
+    "before": "11.87 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\story-entrena-desktop.avif",
+        "size": "254 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-entrena-desktop.webp",
+        "size": "234 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-entrena-desktop.jpg",
+        "size": "239 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-entrena-mobile.avif",
+        "size": "36 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-entrena-mobile.webp",
+        "size": "37 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-entrena-mobile.jpg",
+        "size": "53 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\story-conecta.jpg",
+    "before": "5.00 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\story-conecta-desktop.avif",
+        "size": "44 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-conecta-desktop.webp",
+        "size": "89 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-conecta-desktop.jpg",
+        "size": "158 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-conecta-mobile.avif",
+        "size": "21 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-conecta-mobile.webp",
+        "size": "37 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-conecta-mobile.jpg",
+        "size": "62 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\story-quedate.jpg",
+    "before": "5.29 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\story-quedate-desktop.avif",
+        "size": "72 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-quedate-desktop.webp",
+        "size": "135 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-quedate-desktop.jpg",
+        "size": "227 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-quedate-mobile.avif",
+        "size": "34 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-quedate-mobile.webp",
+        "size": "57 KB"
+      },
+      {
+        "file": "assets\\optimized\\story-quedate-mobile.jpg",
+        "size": "88 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\torneo.jpg",
+    "before": "13.10 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\torneo-desktop.avif",
+        "size": "614 KB"
+      },
+      {
+        "file": "assets\\optimized\\torneo-desktop.webp",
+        "size": "528 KB"
+      },
+      {
+        "file": "assets\\optimized\\torneo-desktop.jpg",
+        "size": "456 KB"
+      },
+      {
+        "file": "assets\\optimized\\torneo-mobile.avif",
+        "size": "108 KB"
+      },
+      {
+        "file": "assets\\optimized\\torneo-mobile.webp",
+        "size": "128 KB"
+      },
+      {
+        "file": "assets\\optimized\\torneo-mobile.jpg",
+        "size": "124 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-coffee.jpg",
+    "before": "2.36 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-coffee-desktop.avif",
+        "size": "38 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-coffee-desktop.webp",
+        "size": "131 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-coffee-desktop.jpg",
+        "size": "168 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-coffee-mobile.avif",
+        "size": "27 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-coffee-mobile.webp",
+        "size": "58 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-coffee-mobile.jpg",
+        "size": "99 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-community.jpg",
+    "before": "1.76 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-community-desktop.avif",
+        "size": "86 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-community-desktop.webp",
+        "size": "128 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-community-desktop.jpg",
+        "size": "152 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-community-mobile.avif",
+        "size": "56 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-community-mobile.webp",
+        "size": "79 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-community-mobile.jpg",
+        "size": "93 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-handshake.jpg",
+    "before": "1.64 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-handshake-desktop.avif",
+        "size": "94 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-handshake-desktop.webp",
+        "size": "174 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-handshake-desktop.jpg",
+        "size": "235 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-handshake-mobile.avif",
+        "size": "61 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-handshake-mobile.webp",
+        "size": "105 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-handshake-mobile.jpg",
+        "size": "142 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-match.jpg",
+    "before": "1.48 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-match-desktop.avif",
+        "size": "36 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-match-desktop.webp",
+        "size": "60 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-match-desktop.jpg",
+        "size": "92 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-match-mobile.avif",
+        "size": "22 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-match-mobile.webp",
+        "size": "37 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-match-mobile.jpg",
+        "size": "56 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-trophy.jpg",
+    "before": "1.36 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-trophy-desktop.avif",
+        "size": "92 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-trophy-desktop.webp",
+        "size": "156 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-trophy-desktop.jpg",
+        "size": "242 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-trophy-mobile.avif",
+        "size": "66 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-trophy-mobile.webp",
+        "size": "107 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-trophy-mobile.jpg",
+        "size": "155 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-court.jpg",
+    "before": "988 KB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-court-desktop.avif",
+        "size": "44 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-court-desktop.webp",
+        "size": "84 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-court-desktop.jpg",
+        "size": "148 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-court-mobile.avif",
+        "size": "28 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-court-mobile.webp",
+        "size": "51 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-court-mobile.jpg",
+        "size": "90 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-architecture.jpg",
+    "before": "702 KB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-architecture-desktop.avif",
+        "size": "41 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-architecture-desktop.webp",
+        "size": "72 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-architecture-desktop.jpg",
+        "size": "140 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-architecture-mobile.avif",
+        "size": "29 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-architecture-mobile.webp",
+        "size": "46 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-architecture-mobile.jpg",
+        "size": "90 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\gallery\\gallery-lounge.jpg",
+    "before": "459 KB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\gallery-gallery-lounge-desktop.avif",
+        "size": "21 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-lounge-desktop.webp",
+        "size": "42 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-lounge-desktop.jpg",
+        "size": "90 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-lounge-mobile.avif",
+        "size": "15 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-lounge-mobile.webp",
+        "size": "29 KB"
+      },
+      {
+        "file": "assets\\optimized\\gallery-gallery-lounge-mobile.jpg",
+        "size": "60 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\bar-gastronomia.jpg",
+    "before": "1.18 MB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\bar-gastronomia-desktop.avif",
+        "size": "145 KB"
+      },
+      {
+        "file": "assets\\optimized\\bar-gastronomia-desktop.webp",
+        "size": "344 KB"
+      },
+      {
+        "file": "assets\\optimized\\bar-gastronomia-desktop.jpg",
+        "size": "290 KB"
+      },
+      {
+        "file": "assets\\optimized\\bar-gastronomia-mobile.avif",
+        "size": "29 KB"
+      },
+      {
+        "file": "assets\\optimized\\bar-gastronomia-mobile.webp",
+        "size": "59 KB"
+      },
+      {
+        "file": "assets\\optimized\\bar-gastronomia-mobile.jpg",
+        "size": "81 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\global-padel-logo-header.png",
+    "before": "90 KB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\global-padel-logo-header.png",
+        "size": "9 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\global-padel-isologo.png",
+    "before": "81 KB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\global-padel-isologo.png",
+        "size": "14 KB"
+      }
+    ]
+  },
+  {
+    "source": "assets\\global-padel-logo.png",
+    "before": "118 KB",
+    "generated": [
+      {
+        "file": "assets\\optimized\\global-padel-logo.png",
+        "size": "11 KB"
+      }
+    ]
+  }
+]

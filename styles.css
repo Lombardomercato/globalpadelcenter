@@ -10,26 +10,16 @@
   --blue: #168fd4;
   --max: 1180px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-  --final-image:
-    url("./assets/story-conecta.jpg"),
-    #060706;
-  --story-competi-image:
-    url("./assets/story-competi.jpg"),
-    url("./assets/hero-global-hero.jpg"),
-    linear-gradient(160deg, #141812, #060706 70%);
-  --tournament-image:
-    url("./assets/torneo.jpg"),
-    linear-gradient(160deg, #141812, #060706 70%);
+  --final-image: #060706;
+  --story-competi-image: linear-gradient(160deg, #141812, #060706 70%);
+  --tournament-image: linear-gradient(160deg, #141812, #060706 70%);
   --story-entrena-image:
-    url("./assets/story-entrena.jpg"),
     linear-gradient(135deg, rgba(109, 133, 143, 0.18), transparent 48%),
     linear-gradient(160deg, #101815, #060706 70%);
   --story-conecta-image:
-    url("./assets/story-conecta.jpg"),
     linear-gradient(135deg, rgba(244, 240, 231, 0.1), transparent 44%),
     linear-gradient(160deg, #17120f, #060706 70%);
   --story-quedate-image:
-    url("./assets/story-quedate.jpg"),
     linear-gradient(135deg, rgba(189, 216, 107, 0.12), transparent 48%),
     linear-gradient(150deg, #17120f, #070807 62%);
 }
@@ -227,7 +217,11 @@ textarea {
 
 .scene-hero .scene-bg {
   inset: 0;
-  background-image: url("./assets/hero-global-hero.jpg");
+  background-image: image-set(
+    url("./assets/optimized/hero-global-hero-desktop.avif") type("image/avif"),
+    url("./assets/optimized/hero-global-hero-desktop.webp") type("image/webp"),
+    url("./assets/optimized/hero-global-hero-desktop.jpg") type("image/jpeg")
+  );
   background-color: #060706;
   background-position: right center;
   background-repeat: no-repeat;
@@ -238,6 +232,14 @@ textarea {
 
 .scene-final .scene-bg {
   background-image: var(--final-image);
+}
+
+.scene-final.is-bg-loaded .scene-bg {
+  background-image: image-set(
+    url("./assets/optimized/story-conecta-desktop.avif") type("image/avif"),
+    url("./assets/optimized/story-conecta-desktop.webp") type("image/webp"),
+    url("./assets/optimized/story-conecta-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .scene-shade {
@@ -579,9 +581,29 @@ h2 {
   background-position: 44% center;
 }
 
+.story-chapter-competi.is-bg-loaded {
+  background-image:
+    image-set(
+      url("./assets/optimized/story-competi-desktop.avif") type("image/avif"),
+      url("./assets/optimized/story-competi-desktop.webp") type("image/webp"),
+      url("./assets/optimized/story-competi-desktop.jpg") type("image/jpeg")
+    ),
+    var(--story-competi-image);
+}
+
 .story-chapter-entrena {
   background-image: var(--story-entrena-image);
   background-position: center;
+}
+
+.story-chapter-entrena.is-bg-loaded {
+  background-image:
+    image-set(
+      url("./assets/optimized/story-entrena-desktop.avif") type("image/avif"),
+      url("./assets/optimized/story-entrena-desktop.webp") type("image/webp"),
+      url("./assets/optimized/story-entrena-desktop.jpg") type("image/jpeg")
+    ),
+    var(--story-entrena-image);
 }
 
 .story-chapter-conecta {
@@ -589,9 +611,29 @@ h2 {
   background-position: 58% center;
 }
 
+.story-chapter-conecta.is-bg-loaded {
+  background-image:
+    image-set(
+      url("./assets/optimized/story-conecta-desktop.avif") type("image/avif"),
+      url("./assets/optimized/story-conecta-desktop.webp") type("image/webp"),
+      url("./assets/optimized/story-conecta-desktop.jpg") type("image/jpeg")
+    ),
+    var(--story-conecta-image);
+}
+
 .story-chapter-quedate {
   background-image: var(--story-quedate-image);
   background-position: center 38%;
+}
+
+.story-chapter-quedate.is-bg-loaded {
+  background-image:
+    image-set(
+      url("./assets/optimized/story-quedate-desktop.avif") type("image/avif"),
+      url("./assets/optimized/story-quedate-desktop.webp") type("image/webp"),
+      url("./assets/optimized/story-quedate-desktop.jpg") type("image/jpeg")
+    ),
+    var(--story-quedate-image);
 }
 
 .story-chapter-inner {
@@ -681,6 +723,10 @@ h2 {
   text-transform: uppercase;
 }
 
+.gallery-hint {
+  display: none;
+}
+
 .gallery-composition {
   width: min(100% - 2.6rem, 1400px);
   margin-inline: auto;
@@ -730,53 +776,109 @@ h2 {
 
 .gallery-photo-community {
   grid-area: community;
-  background-image: url("./assets/gallery/gallery-community.jpg");
   background-position: center top;
   background-size: contain;
   background-repeat: no-repeat;
   background-color: #071111;
 }
 
+.gallery-photo-community.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-community-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-community-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-community-desktop.jpg") type("image/jpeg")
+  );
+}
+
 .gallery-photo-trophy {
   grid-area: trophy;
-  background-image: url("./assets/gallery/gallery-trophy.jpg");
   background-position: 50% 32%;
+}
+
+.gallery-photo-trophy.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-trophy-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-trophy-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-trophy-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .gallery-photo-match {
   grid-area: match;
-  background-image: url("./assets/gallery/gallery-match.jpg");
   background-position: center;
+}
+
+.gallery-photo-match.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-match-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-match-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-match-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .gallery-photo-coffee {
   grid-area: coffee;
-  background-image: url("./assets/gallery/gallery-coffee.jpg");
   background-position: 50% 58%;
+}
+
+.gallery-photo-coffee.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-coffee-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-coffee-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-coffee-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .gallery-photo-court {
   grid-area: court;
-  background-image: url("./assets/gallery/gallery-court.jpg");
   background-position: 50% center;
+}
+
+.gallery-photo-court.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-court-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-court-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-court-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .gallery-photo-lounge {
   grid-area: lounge;
-  background-image: url("./assets/gallery/gallery-lounge.jpg");
   background-position: 50% center;
+}
+
+.gallery-photo-lounge.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-lounge-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-lounge-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-lounge-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .gallery-photo-handshake {
   grid-area: handshake;
-  background-image: url("./assets/gallery/gallery-handshake.jpg");
   background-position: 50% 42%;
+}
+
+.gallery-photo-handshake.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-handshake-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-handshake-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-handshake-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .gallery-photo-architecture {
   grid-area: architecture;
-  background-image: url("./assets/gallery/gallery-architecture.jpg");
   background-position: 50% 42%;
+}
+
+.gallery-photo-architecture.is-bg-loaded {
+  background-image: image-set(
+    url("./assets/optimized/gallery-gallery-architecture-desktop.avif") type("image/avif"),
+    url("./assets/optimized/gallery-gallery-architecture-desktop.webp") type("image/webp"),
+    url("./assets/optimized/gallery-gallery-architecture-desktop.jpg") type("image/jpeg")
+  );
 }
 
 .bar-story h2,
@@ -821,6 +923,16 @@ h2 {
   background-size: cover;
   background-attachment: fixed;
   isolation: isolate;
+}
+
+.events-tournaments.is-bg-loaded {
+  background-image:
+    image-set(
+      url("./assets/optimized/torneo-desktop.avif") type("image/avif"),
+      url("./assets/optimized/torneo-desktop.webp") type("image/webp"),
+      url("./assets/optimized/torneo-desktop.jpg") type("image/jpeg")
+    ),
+    var(--tournament-image);
 }
 
 .events-tournaments::before {
@@ -883,10 +995,19 @@ h2 {
 
 .bar-bg {
   background-image:
-    linear-gradient(90deg, rgba(6, 7, 6, 0.22), rgba(6, 7, 6, 0.5) 48%, rgba(6, 7, 6, 0.82)),
-    url("./assets/bar-gastronomia.jpg");
+    linear-gradient(90deg, rgba(6, 7, 6, 0.22), rgba(6, 7, 6, 0.5) 48%, rgba(6, 7, 6, 0.82));
   background-position: center 42%;
   filter: saturate(1.05) contrast(1.02) brightness(0.95);
+}
+
+.bar-story.is-bg-loaded .bar-bg {
+  background-image:
+    linear-gradient(90deg, rgba(6, 7, 6, 0.22), rgba(6, 7, 6, 0.5) 48%, rgba(6, 7, 6, 0.82)),
+    image-set(
+      url("./assets/optimized/bar-gastronomia-desktop.avif") type("image/avif"),
+      url("./assets/optimized/bar-gastronomia-desktop.webp") type("image/webp"),
+      url("./assets/optimized/bar-gastronomia-desktop.jpg") type("image/jpeg")
+    );
 }
 
 .bar-story::after {
@@ -1070,6 +1191,10 @@ h2 {
   border-radius: 0.78rem;
   filter: saturate(0.95) contrast(0.92) brightness(1);
   opacity: 0.88;
+}
+
+.map-enable {
+  display: none;
 }
 
 .contact-grid {
@@ -1442,9 +1567,13 @@ h2 {
     height: auto;
   }
 
+  .gpc-logo {
+    min-height: 2.75rem;
+  }
+
   .gpc-menu-button {
-    width: 2.35rem;
-    height: 2.35rem;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
   .gpc-menu-button span {
@@ -1453,10 +1582,32 @@ h2 {
   }
 
   .gpc-nav-cta {
-    min-height: 2.3rem;
+    min-height: 2.75rem;
     padding: 0.58rem 0.72rem;
     justify-self: end;
     font-size: 0.74rem;
+  }
+
+  .gpc-menu a {
+    min-height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gpc-logo:focus-visible,
+  .gpc-menu-button:focus-visible,
+  .gpc-nav-cta:focus-visible,
+  .gpc-menu a:focus-visible,
+  .gpc-button:focus-visible,
+  .training-note a:focus-visible,
+  .footer-links a:focus-visible,
+  .footer-bottom a:focus-visible,
+  .footer-newsletter input:focus-visible,
+  .footer-newsletter button:focus-visible,
+  .map-enable:focus-visible {
+    outline: 2px solid rgba(189, 216, 107, 0.72);
+    outline-offset: 3px;
   }
 
   .scene h1 {
@@ -1471,9 +1622,22 @@ h2 {
 
   .scene-hero .scene-bg {
     inset: -8%;
+    background-image: image-set(
+      url("./assets/optimized/hero-global-hero-mobile.avif") type("image/avif"),
+      url("./assets/optimized/hero-global-hero-mobile.webp") type("image/webp"),
+      url("./assets/optimized/hero-global-hero-mobile.jpg") type("image/jpeg")
+    );
     background-position: 63% center;
     background-size: auto 110%;
     transform: translate3d(0, var(--parallax, 0px), 0) scale(1.06);
+  }
+
+  .scene-final.is-bg-loaded .scene-bg {
+    background-image: image-set(
+      url("./assets/optimized/story-conecta-mobile.avif") type("image/avif"),
+      url("./assets/optimized/story-conecta-mobile.webp") type("image/webp"),
+      url("./assets/optimized/story-conecta-mobile.jpg") type("image/jpeg")
+    );
   }
 
   .hero-bottom {
@@ -1543,8 +1707,58 @@ h2 {
     font-size: clamp(3.2rem, 18vw, 5rem);
   }
 
+  .story-chapter-competi.is-bg-loaded {
+    background-image:
+      image-set(
+        url("./assets/optimized/story-competi-mobile.avif") type("image/avif"),
+        url("./assets/optimized/story-competi-mobile.webp") type("image/webp"),
+        url("./assets/optimized/story-competi-mobile.jpg") type("image/jpeg")
+      ),
+      var(--story-competi-image);
+  }
+
+  .story-chapter-entrena.is-bg-loaded {
+    background-image:
+      image-set(
+        url("./assets/optimized/story-entrena-mobile.avif") type("image/avif"),
+        url("./assets/optimized/story-entrena-mobile.webp") type("image/webp"),
+        url("./assets/optimized/story-entrena-mobile.jpg") type("image/jpeg")
+      ),
+      var(--story-entrena-image);
+  }
+
+  .story-chapter-conecta.is-bg-loaded {
+    background-image:
+      image-set(
+        url("./assets/optimized/story-conecta-mobile.avif") type("image/avif"),
+        url("./assets/optimized/story-conecta-mobile.webp") type("image/webp"),
+        url("./assets/optimized/story-conecta-mobile.jpg") type("image/jpeg")
+      ),
+      var(--story-conecta-image);
+  }
+
+  .story-chapter-quedate.is-bg-loaded {
+    background-image:
+      image-set(
+        url("./assets/optimized/story-quedate-mobile.avif") type("image/avif"),
+        url("./assets/optimized/story-quedate-mobile.webp") type("image/webp"),
+        url("./assets/optimized/story-quedate-mobile.jpg") type("image/jpeg")
+      ),
+      var(--story-quedate-image);
+  }
+
   .events-grid {
     align-items: start;
+  }
+
+  .events-tournaments.is-bg-loaded {
+    background-image:
+      image-set(
+        url("./assets/optimized/torneo-mobile.avif") type("image/avif"),
+        url("./assets/optimized/torneo-mobile.webp") type("image/webp"),
+        url("./assets/optimized/torneo-mobile.jpg") type("image/jpeg")
+      ),
+      var(--tournament-image);
   }
 
   .events-grid .gpc-button {
@@ -1568,6 +1782,17 @@ h2 {
     font-size: clamp(2.8rem, 15vw, 4.4rem);
   }
 
+  .gallery-hint {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    margin-top: 0.8rem;
+    color: rgba(244, 240, 231, 0.58);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
   .experience-gallery {
     padding: 6rem 0;
   }
@@ -1585,6 +1810,7 @@ h2 {
     scroll-padding-left: 0.7rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 2.8rem), transparent 100%);
   }
 
   .gallery-composition::-webkit-scrollbar {
@@ -1610,6 +1836,70 @@ h2 {
     min-height: 54svh;
   }
 
+  .gallery-photo-community.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-community-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-community-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-community-mobile.jpg") type("image/jpeg")
+    );
+  }
+
+  .gallery-photo-trophy.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-trophy-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-trophy-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-trophy-mobile.jpg") type("image/jpeg")
+    );
+  }
+
+  .gallery-photo-match.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-match-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-match-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-match-mobile.jpg") type("image/jpeg")
+    );
+  }
+
+  .gallery-photo-coffee.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-coffee-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-coffee-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-coffee-mobile.jpg") type("image/jpeg")
+    );
+  }
+
+  .gallery-photo-court.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-court-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-court-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-court-mobile.jpg") type("image/jpeg")
+    );
+  }
+
+  .gallery-photo-lounge.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-lounge-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-lounge-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-lounge-mobile.jpg") type("image/jpeg")
+    );
+  }
+
+  .gallery-photo-handshake.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-handshake-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-handshake-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-handshake-mobile.jpg") type("image/jpeg")
+    );
+  }
+
+  .gallery-photo-architecture.is-bg-loaded {
+    background-image: image-set(
+      url("./assets/optimized/gallery-gallery-architecture-mobile.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-architecture-mobile.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-architecture-mobile.jpg") type("image/jpeg")
+    );
+  }
+
   .events-actions,
   .bar-copy {
     width: 100%;
@@ -1623,6 +1913,16 @@ h2 {
     background: transparent;
   }
 
+  .bar-story.is-bg-loaded .bar-bg {
+    background-image:
+      linear-gradient(90deg, rgba(6, 7, 6, 0.22), rgba(6, 7, 6, 0.5) 48%, rgba(6, 7, 6, 0.82)),
+      image-set(
+        url("./assets/optimized/bar-gastronomia-mobile.avif") type("image/avif"),
+        url("./assets/optimized/bar-gastronomia-mobile.webp") type("image/webp"),
+        url("./assets/optimized/bar-gastronomia-mobile.jpg") type("image/jpeg")
+      );
+  }
+
   .events-actions .gpc-button,
   .bar-copy .gpc-button {
     width: 100%;
@@ -1632,9 +1932,50 @@ h2 {
     max-width: 19rem;
   }
 
+  .training-note a {
+    min-height: 2.75rem;
+    align-items: center;
+    padding-block: 0.35rem;
+  }
+
   .map-wrap,
   .map-wrap iframe {
     min-height: 24rem;
+  }
+
+  .map-wrap iframe {
+    pointer-events: none;
+  }
+
+  .map-wrap.is-map-active iframe {
+    pointer-events: auto;
+  }
+
+  .map-enable {
+    position: absolute;
+    left: 50%;
+    bottom: 1.35rem;
+    z-index: 2;
+    min-height: 2.75rem;
+    max-width: calc(100% - 2rem);
+    padding: 0.68rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(189, 216, 107, 0.42);
+    border-radius: 999px;
+    background: rgba(6, 7, 6, 0.74);
+    color: var(--ink);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    backdrop-filter: blur(14px);
+  }
+
+  .map-wrap.is-map-active .map-enable {
+    display: none;
   }
 
   .footer-grid {
@@ -1661,6 +2002,29 @@ h2 {
   .footer-newsletter > div {
     width: 100%;
     grid-template-columns: 1fr;
+  }
+
+  .footer-links a {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-bottom a {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-newsletter input,
+  .footer-newsletter button {
+    min-height: 2.75rem;
+  }
+
+  .footer-newsletter > div:focus-within {
+    border-color: rgba(22, 143, 212, 0.62);
+    box-shadow: 0 0 0 3px rgba(22, 143, 212, 0.14);
   }
 
   .footer-newsletter button {
