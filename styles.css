@@ -663,12 +663,14 @@ h2 {
 }
 
 .experience-gallery {
-  padding: clamp(7.5rem, 11vw, 11rem) 0 clamp(8rem, 12vw, 12rem);
-  background: #060706;
+  margin-top: -1px;
+  padding: clamp(4.8rem, 7vw, 7rem) 0 clamp(5.2rem, 7.5vw, 7.5rem);
+  background:
+    linear-gradient(180deg, #080908 0%, #060706 18%, #060706 72%, #080908 100%);
 }
 
 .gallery-head {
-  margin-bottom: clamp(3.4rem, 6vw, 6.4rem);
+  margin-bottom: clamp(2.8rem, 5vw, 5.2rem);
 }
 
 .gallery-head h2 {
@@ -683,16 +685,18 @@ h2 {
   width: min(100% - 2.6rem, 1400px);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.72fr) minmax(0, 0.72fr);
+  grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.68fr) minmax(0, 0.68fr);
   grid-template-rows:
-    minmax(20rem, clamp(24rem, 32vw, 34rem))
-    minmax(20rem, clamp(24rem, 32vw, 34rem))
-    minmax(14rem, clamp(16rem, 20vw, 22rem))
-    minmax(14rem, clamp(16rem, 20vw, 22rem));
+    minmax(19rem, clamp(22rem, 28vw, 31rem))
+    minmax(19rem, clamp(22rem, 28vw, 31rem))
+    minmax(13rem, clamp(15rem, 18vw, 20rem))
+    minmax(13rem, clamp(15rem, 18vw, 20rem))
+    minmax(13rem, clamp(15rem, 18vw, 20rem));
   grid-template-areas:
     "community community trophy"
     "community community coffee"
-    "handshake match court"
+    "handshake handshake match"
+    "handshake handshake court"
     "lounge architecture architecture";
   gap: clamp(1.25rem, 2vw, 2.25rem);
   align-items: stretch;
@@ -727,8 +731,8 @@ h2 {
 .gallery-photo-community {
   grid-area: community;
   background-image: url("./assets/gallery/gallery-community.jpg");
-  background-position: 50% 20%;
-  background-size: 100% auto;
+  background-position: center top;
+  background-size: contain;
   background-repeat: no-repeat;
   background-color: #071111;
 }
@@ -932,9 +936,10 @@ h2 {
 }
 
 .sponsors {
-  padding: clamp(6.4rem, 8.5vw, 8.6rem) 0;
+  padding: clamp(6.4rem, 8.5vw, 8.6rem) 0 clamp(3.6rem, 5.5vw, 5.6rem);
   overflow: hidden;
-  background: #080908;
+  background:
+    linear-gradient(180deg, #080908 0%, #080908 74%, #060706 100%);
 }
 
 .sponsors-head {
@@ -974,8 +979,10 @@ h2 {
 }
 
 .location {
-  padding: clamp(7.5rem, 9.5vw, 9.8rem) 0;
-  background: #090a09;
+  margin-top: -1px;
+  padding: clamp(5.4rem, 7.2vw, 7.2rem) 0 clamp(7.2rem, 9vw, 9.4rem);
+  background:
+    linear-gradient(180deg, #080908 0%, #090a09 24%, #090a09 100%);
 }
 
 .location-grid,
@@ -987,18 +994,28 @@ h2 {
   align-items: center;
 }
 
+.location-grid {
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.12fr);
+  gap: clamp(2.8rem, 6vw, 5.8rem);
+  align-items: end;
+}
+
+.location-grid > div:first-child {
+  max-width: 36rem;
+}
+
 .location p:not(.gpc-kicker),
 .contact p:not(.gpc-kicker) {
   max-width: 32rem;
-  margin-top: 1.65rem;
+  margin-top: 1.5rem;
   color: var(--muted);
 }
 
 .location-details {
   max-width: 24rem;
-  margin-top: 1.85rem;
+  margin-top: 2rem;
   display: grid;
-  gap: 0.62rem;
+  gap: 0.72rem;
 }
 
 .location-details span {
@@ -1024,32 +1041,35 @@ h2 {
 
 .map-wrap {
   position: relative;
-  min-height: 34rem;
-  padding: 0.58rem;
+  min-height: 36rem;
+  padding: clamp(0.58rem, 1vw, 0.82rem);
   overflow: hidden;
-  border: 1px solid rgba(244, 240, 231, 0.14);
-  border-radius: 1.05rem;
-  background: rgba(244, 240, 231, 0.045);
-  box-shadow: 0 1.8rem 4.8rem rgba(0, 0, 0, 0.34);
+  border: 1px solid rgba(244, 240, 231, 0.12);
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(135deg, rgba(244, 240, 231, 0.08), rgba(244, 240, 231, 0.025)),
+    #070807;
+  box-shadow: 0 1.9rem 5rem rgba(0, 0, 0, 0.38);
 }
 
 .map-wrap::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0.58rem;
   pointer-events: none;
+  border-radius: 0.76rem;
   background:
-    linear-gradient(90deg, rgba(6, 7, 6, 0.12), transparent 38%, rgba(6, 7, 6, 0.1)),
-    linear-gradient(180deg, rgba(6, 7, 6, 0.16), transparent 44%, rgba(6, 7, 6, 0.2));
+    linear-gradient(90deg, rgba(6, 7, 6, 0.08), transparent 38%, rgba(6, 7, 6, 0.08)),
+    linear-gradient(180deg, rgba(6, 7, 6, 0.08), transparent 46%, rgba(6, 7, 6, 0.16));
 }
 
 .map-wrap iframe {
   width: 100%;
-  min-height: calc(34rem - 1.16rem);
+  min-height: calc(36rem - 1.4rem);
   border: 0;
-  border-radius: 0.72rem;
-  filter: saturate(1.02) contrast(0.94) brightness(0.98);
-  opacity: 0.9;
+  border-radius: 0.78rem;
+  filter: saturate(0.95) contrast(0.92) brightness(1);
+  opacity: 0.88;
 }
 
 .contact-grid {
