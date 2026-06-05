@@ -218,9 +218,9 @@ textarea {
 .scene-hero .scene-bg {
   inset: 0;
   background-image: image-set(
-    url("./assets/optimized/hero-global-hero-desktop.avif") type("image/avif"),
-    url("./assets/optimized/hero-global-hero-desktop.webp") type("image/webp"),
-    url("./assets/optimized/hero-global-hero-desktop.jpg") type("image/jpeg")
+    url("./assets/optimized/hero-dsc0291-desktop.avif") type("image/avif"),
+    url("./assets/optimized/hero-dsc0291-desktop.webp") type("image/webp"),
+    url("./assets/optimized/hero-dsc0291-desktop.jpg") type("image/jpeg")
   );
   background-color: #060706;
   background-position: right center;
@@ -1630,9 +1630,9 @@ h2 {
   .scene-hero .scene-bg {
     inset: -8%;
     background-image: image-set(
-      url("./assets/optimized/hero-global-hero-mobile.avif") type("image/avif"),
-      url("./assets/optimized/hero-global-hero-mobile.webp") type("image/webp"),
-      url("./assets/optimized/hero-global-hero-mobile.jpg") type("image/jpeg")
+      url("./assets/optimized/hero-dsc0291-mobile.avif") type("image/avif"),
+      url("./assets/optimized/hero-dsc0291-mobile.webp") type("image/webp"),
+      url("./assets/optimized/hero-dsc0291-mobile.jpg") type("image/jpeg")
     );
     background-position: 63% center;
     background-size: auto 110%;
