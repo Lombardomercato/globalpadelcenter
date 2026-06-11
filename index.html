@@ -60,7 +60,10 @@
     <link rel="apple-touch-icon" href="./assets/optimized/global-padel-isologo.png?v=3" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-mobile.avif" type="image/avif" media="(max-width: 680px)" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-desktop.avif" type="image/avif" media="(min-width: 681px)" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      document.documentElement.classList.toggle("font-test-bounded", new URLSearchParams(window.location.search).get("font") === "bounded");
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=font-test-1" />
   </head>
   <body>
     <div class="gpc-progress" data-progress></div>
@@ -338,7 +341,7 @@
       </div>
     </footer>
 
-    <script src="./script.js"></script>
+    <script src="./script.js?v=font-test-1"></script>
   </body>
 </html>
 

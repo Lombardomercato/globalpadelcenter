@@ -1,5 +1,13 @@
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500&f[]=clash-display@300,400,500&f[]=cabinet-grotesk@300,400,500&display=swap");
 
+@font-face {
+  font-family: "Bounded Trial";
+  src: url("./assets/fonts/Bounded-Regular.otf") format("opentype");
+  font-weight: 300 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #060706;
   --ink: #f4f0e7;
@@ -323,6 +331,60 @@ h2 {
   font-family: "Clash Display", "Satoshi", system-ui, sans-serif;
   font-weight: 300;
   letter-spacing: -0.045em;
+}
+
+html.font-test-bounded .scene-hero h1,
+html.font-test-bounded .story-intro h2,
+html.font-test-bounded .story-chapter h3,
+html.font-test-bounded .bar-story h2,
+html.font-test-bounded .events-tournaments h2,
+html.font-test-bounded .sponsors h2,
+html.font-test-bounded .gallery-head h2,
+html.font-test-bounded .location h2,
+html.font-test-bounded .contact h2 {
+  font-family: "Bounded Trial", "Clash Display", "Satoshi", system-ui, sans-serif;
+  letter-spacing: -0.034em;
+  text-wrap: balance;
+}
+
+html.font-test-bounded .scene-hero h1 {
+  max-width: min(100%, 11.2ch);
+  font-size: clamp(4.45rem, 10.2vw, 11.2rem);
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+}
+
+html.font-test-bounded .story-intro h2 {
+  max-width: 10.35ch;
+  font-size: clamp(3.35rem, 7.2vw, 8.9rem);
+  line-height: 0.86;
+}
+
+html.font-test-bounded .story-chapter h3 {
+  max-width: 7.6ch;
+  font-size: clamp(3.85rem, 9.5vw, 10.8rem);
+  line-height: 0.86;
+  letter-spacing: -0.042em;
+}
+
+html.font-test-bounded .gallery-head h2 {
+  max-width: 10.8ch;
+  font-size: clamp(3rem, 6.3vw, 7.2rem);
+  line-height: 0.88;
+}
+
+html.font-test-bounded .bar-story h2 {
+  max-width: 12ch;
+  font-size: clamp(3rem, 4.3vw, 4.8rem);
+  line-height: 0.9;
+}
+
+html.font-test-bounded .events-tournaments h2,
+html.font-test-bounded .sponsors h2,
+html.font-test-bounded .location h2,
+html.font-test-bounded .contact h2 {
+  font-size: clamp(2.45rem, 4.4vw, 4.9rem);
+  line-height: 0.94;
 }
 
 .scene h1 {
