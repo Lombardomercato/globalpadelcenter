@@ -5,8 +5,8 @@
   --ink: #f4f0e7;
   --muted: rgba(244, 240, 231, 0.68);
   --quiet: rgba(244, 240, 231, 0.4);
-  --line: rgba(244, 240, 231, 0.11);
-  --green: #bdd86b;
+  --line: rgba(244, 240, 231, 0.12);
+  --green: #9ec43c;
   --blue: #168fd4;
   --max: 1180px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -20,7 +20,7 @@
     linear-gradient(135deg, rgba(244, 240, 231, 0.1), transparent 44%),
     linear-gradient(160deg, #17120f, #060706 70%);
   --story-quedate-image:
-    linear-gradient(135deg, rgba(189, 216, 107, 0.12), transparent 48%),
+    linear-gradient(135deg, rgba(158, 196, 60, 0.12), transparent 48%),
     linear-gradient(150deg, #17120f, #070807 62%);
 }
 
@@ -106,7 +106,7 @@ textarea {
   grid-template-columns: auto 1fr auto;
   gap: 1rem;
   align-items: center;
-  border: 1px solid rgba(244, 240, 231, 0.1);
+  border: 1px solid rgba(244, 240, 231, 0.12);
   border-radius: 0.92rem;
   background: rgba(6, 7, 6, 0.56);
   backdrop-filter: blur(20px);
@@ -170,14 +170,14 @@ textarea {
 
 .gpc-button-primary,
 .gpc-nav-cta {
-  border-color: rgba(189, 216, 107, 0.5);
-  background: rgba(189, 216, 107, 0.11);
+  border-color: rgba(158, 196, 60, 0.5);
+  background: rgba(158, 196, 60, 0.11);
 }
 
 .gpc-button:hover,
 .gpc-nav-cta:hover {
   transform: translateY(-1px);
-  border-color: rgba(189, 216, 107, 0.66);
+  border-color: rgba(158, 196, 60, 0.66);
 }
 
 .gpc-menu-button {
@@ -205,7 +205,8 @@ textarea {
 }
 
 .scene-bg,
-.bar-bg {
+.bar-bg,
+.bar-quincho-bg {
   position: absolute;
   inset: -8%;
   z-index: -3;
@@ -410,7 +411,7 @@ h2 {
 }
 
 .scene-hero .gpc-button-primary {
-  border-color: rgba(189, 216, 107, 0.88);
+  border-color: rgba(158, 196, 60, 0.88);
   background: var(--green);
   color: #081008;
   box-shadow: none;
@@ -469,7 +470,7 @@ h2 {
 
 .gpc-marquee {
   overflow: hidden;
-  border-block: 1px solid rgba(244, 240, 231, 0.08);
+  border-block: 1px solid rgba(244, 240, 231, 0.1);
   background: #070807;
 }
 
@@ -531,7 +532,7 @@ h2 {
 
 .story-intro h2 {
   max-width: 9.4ch;
-  margin-top: 1.25rem;
+  margin-top: 1.45rem;
   font-size: clamp(4rem, 9.4vw, 10.8rem);
   line-height: 0.78;
   text-transform: uppercase;
@@ -724,7 +725,7 @@ h2 {
 
 .gallery-head h2 {
   max-width: 10ch;
-  margin-top: 1.25rem;
+  margin-top: 1.45rem;
   font-size: clamp(3.2rem, 8vw, 9.2rem);
   line-height: 0.82;
   text-transform: uppercase;
@@ -893,7 +894,7 @@ h2 {
 .location h2,
 .contact h2,
 .events-tournaments h2 {
-  margin-top: 1.25rem;
+  margin-top: 1.45rem;
   font-size: clamp(2.8rem, 5.4vw, 5.8rem);
   line-height: 0.9;
 }
@@ -1007,13 +1008,36 @@ h2 {
   filter: saturate(1.05) contrast(1.02) brightness(0.95);
 }
 
+.bar-quincho-bg {
+  inset: -8% -8% -8% 50%;
+  z-index: -4;
+  background-image:
+    linear-gradient(90deg, rgba(6, 7, 6, 0.58), rgba(6, 7, 6, 0.24) 42%, rgba(6, 7, 6, 0.68));
+  background-position: center;
+  filter: saturate(0.98) contrast(1.04) brightness(0.82);
+}
+
+.bar-story .bar-bg {
+  right: 48%;
+}
+
 .bar-story.is-bg-loaded .bar-bg {
   background-image:
-    linear-gradient(90deg, rgba(6, 7, 6, 0.22), rgba(6, 7, 6, 0.5) 48%, rgba(6, 7, 6, 0.82)),
+    linear-gradient(90deg, rgba(6, 7, 6, 0.26), rgba(6, 7, 6, 0.5) 58%, rgba(6, 7, 6, 0.88)),
     image-set(
       url("./assets/optimized/bar-gastronomia-desktop.avif") type("image/avif"),
       url("./assets/optimized/bar-gastronomia-desktop.webp") type("image/webp"),
       url("./assets/optimized/bar-gastronomia-desktop.jpg") type("image/jpeg")
+    );
+}
+
+.bar-story.is-bg-loaded .bar-quincho-bg {
+  background-image:
+    linear-gradient(90deg, rgba(6, 7, 6, 0.72), rgba(6, 7, 6, 0.18) 44%, rgba(6, 7, 6, 0.76)),
+    image-set(
+      url("./assets/optimized/gallery-gallery-lounge-desktop.avif") type("image/avif"),
+      url("./assets/optimized/gallery-gallery-lounge-desktop.webp") type("image/webp"),
+      url("./assets/optimized/gallery-gallery-lounge-desktop.jpg") type("image/jpeg")
     );
 }
 
@@ -1063,6 +1087,29 @@ h2 {
   padding-inline: 1rem;
 }
 
+.bar-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bar-features li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.9rem;
+  padding: 0.28rem 0.62rem;
+  border: 1px solid rgba(244, 240, 231, 0.12);
+  border-radius: 999px;
+  background: rgba(6, 7, 6, 0.32);
+  color: rgba(244, 240, 231, 0.74);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .sponsors {
   padding: clamp(6.4rem, 8.5vw, 8.6rem) 0 clamp(3.6rem, 5.5vw, 5.6rem);
   overflow: hidden;
@@ -1095,8 +1142,8 @@ h2 {
   min-height: clamp(5rem, 6.6vw, 6.2rem);
   display: grid;
   place-items: center;
-  border-top: 1px solid rgba(244, 240, 231, 0.1);
-  border-bottom: 1px solid rgba(244, 240, 231, 0.1);
+  border-top: 1px solid rgba(244, 240, 231, 0.12);
+  border-bottom: 1px solid rgba(244, 240, 231, 0.12);
 }
 
 .sponsor-logo img {
@@ -1249,8 +1296,8 @@ h2 {
 }
 
 .contact-actions .gpc-button-primary {
-  border-color: rgba(189, 216, 107, 0.78);
-  background: rgba(189, 216, 107, 0.16);
+  border-color: rgba(158, 196, 60, 0.78);
+  background: rgba(158, 196, 60, 0.16);
 }
 
 .contact-actions .gpc-button span {
@@ -1270,7 +1317,7 @@ h2 {
 
 .gpc-footer {
   padding: 0.9rem 0 0.65rem;
-  border-top: 1px solid rgba(244, 240, 231, 0.08);
+  border-top: 1px solid rgba(244, 240, 231, 0.1);
   background: #060706;
 }
 
@@ -1425,8 +1472,8 @@ h2 {
 .footer-newsletter button {
   min-height: 2.75rem;
   padding: 0 0.62rem;
-  border: 1px solid rgba(189, 216, 107, 0.42);
-  background: rgba(189, 216, 107, 0.11);
+  border: 1px solid rgba(158, 196, 60, 0.42);
+  background: rgba(158, 196, 60, 0.11);
   color: var(--ink);
   font-size: 0.76rem;
   cursor: pointer;
@@ -1435,7 +1482,7 @@ h2 {
 .footer-bottom {
   margin-top: 0.7rem;
   padding-top: 0.5rem;
-  border-top: 1px solid rgba(244, 240, 231, 0.08);
+  border-top: 1px solid rgba(244, 240, 231, 0.1);
 }
 
 .footer-bottom a {
@@ -1649,7 +1696,7 @@ h2 {
   .footer-newsletter input:focus-visible,
   .footer-newsletter button:focus-visible,
   .map-enable:focus-visible {
-    outline: 2px solid rgba(189, 216, 107, 0.72);
+    outline: 2px solid rgba(158, 196, 60, 0.72);
     outline-offset: 3px;
   }
 
@@ -1997,13 +2044,27 @@ h2 {
   }
 
   .bar-story.is-bg-loaded .bar-bg {
+    inset: -8% -8% 42% -8%;
+    right: -8%;
     background-image:
-      linear-gradient(90deg, rgba(6, 7, 6, 0.22), rgba(6, 7, 6, 0.5) 48%, rgba(6, 7, 6, 0.82)),
+      linear-gradient(90deg, rgba(6, 7, 6, 0.36), rgba(6, 7, 6, 0.5) 48%, rgba(6, 7, 6, 0.82)),
       image-set(
         url("./assets/optimized/bar-gastronomia-mobile.avif") type("image/avif"),
         url("./assets/optimized/bar-gastronomia-mobile.webp") type("image/webp"),
         url("./assets/optimized/bar-gastronomia-mobile.jpg") type("image/jpeg")
       );
+  }
+
+  .bar-story.is-bg-loaded .bar-quincho-bg {
+    inset: 34% -8% -8% -8%;
+    background-image:
+      linear-gradient(180deg, rgba(6, 7, 6, 0.72), rgba(6, 7, 6, 0.2) 42%, rgba(6, 7, 6, 0.82)),
+      image-set(
+        url("./assets/optimized/gallery-gallery-lounge-mobile.avif") type("image/avif"),
+        url("./assets/optimized/gallery-gallery-lounge-mobile.webp") type("image/webp"),
+        url("./assets/optimized/gallery-gallery-lounge-mobile.jpg") type("image/jpeg")
+      );
+    background-position: center 40%;
   }
 
   .events-actions .gpc-button,
@@ -2045,7 +2106,7 @@ h2 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(189, 216, 107, 0.42);
+    border: 1px solid rgba(158, 196, 60, 0.42);
     border-radius: 999px;
     background: rgba(6, 7, 6, 0.74);
     color: var(--ink);
