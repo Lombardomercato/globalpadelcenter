@@ -1,8 +1,5 @@
 document.documentElement.classList.add("js");
 
-const fontVariant = new URLSearchParams(window.location.search).get("font");
-document.documentElement.classList.toggle("font-test-bounded", fontVariant === "bounded");
-
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const menu = document.querySelector("[data-menu]");

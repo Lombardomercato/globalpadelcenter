@@ -333,56 +333,56 @@ h2 {
   letter-spacing: -0.045em;
 }
 
-html.font-test-bounded .scene-hero h1,
-html.font-test-bounded .story-intro h2,
-html.font-test-bounded .story-chapter h3,
-html.font-test-bounded .bar-story h2,
-html.font-test-bounded .events-tournaments h2,
-html.font-test-bounded .sponsors h2,
-html.font-test-bounded .gallery-head h2,
-html.font-test-bounded .location h2,
-html.font-test-bounded .contact h2 {
+html .scene-hero h1,
+html .story-intro h2,
+html .story-chapter h3,
+html .bar-story h2,
+html .events-tournaments h2,
+html .sponsors h2,
+html .gallery-head h2,
+html .location h2,
+html .contact h2 {
   font-family: "Bounded Trial", "Clash Display", "Satoshi", system-ui, sans-serif;
   letter-spacing: -0.034em;
   text-wrap: balance;
 }
 
-html.font-test-bounded .scene-hero h1 {
+html .scene-hero h1 {
   max-width: min(100%, 11.2ch);
   font-size: clamp(4.45rem, 10.2vw, 11.2rem);
   line-height: 0.84;
   letter-spacing: -0.045em;
 }
 
-html.font-test-bounded .story-intro h2 {
+html .story-intro h2 {
   max-width: 10.35ch;
   font-size: clamp(3.35rem, 7.2vw, 8.9rem);
   line-height: 0.86;
 }
 
-html.font-test-bounded .story-chapter h3 {
+html .story-chapter h3 {
   max-width: 7.6ch;
   font-size: clamp(3.85rem, 9.5vw, 10.8rem);
   line-height: 0.86;
   letter-spacing: -0.042em;
 }
 
-html.font-test-bounded .gallery-head h2 {
+html .gallery-head h2 {
   max-width: 10.8ch;
   font-size: clamp(3rem, 6.3vw, 7.2rem);
   line-height: 0.88;
 }
 
-html.font-test-bounded .bar-story h2 {
+html .bar-story h2 {
   max-width: 12ch;
   font-size: clamp(3rem, 4.3vw, 4.8rem);
   line-height: 0.9;
 }
 
-html.font-test-bounded .events-tournaments h2,
-html.font-test-bounded .sponsors h2,
-html.font-test-bounded .location h2,
-html.font-test-bounded .contact h2 {
+html .events-tournaments h2,
+html .sponsors h2,
+html .location h2,
+html .contact h2 {
   font-size: clamp(2.45rem, 4.4vw, 4.9rem);
   line-height: 0.94;
 }
@@ -536,6 +536,10 @@ html.font-test-bounded .contact h2 {
   background: #070807;
 }
 
+.gpc-marquee + .gpc-marquee-sponsors {
+  border-top: 0;
+}
+
 .marquee-track,
 .sponsor-track {
   width: max-content;
@@ -548,6 +552,10 @@ html.font-test-bounded .contact h2 {
   gap: 0;
   padding: 1rem 0;
   animation: marquee-infinite 24s linear infinite;
+}
+
+.marquee-track-reverse {
+  animation: marquee-infinite-reverse 34s linear infinite;
 }
 
 .marquee-group {
@@ -570,12 +578,32 @@ html.font-test-bounded .contact h2 {
   content: "";
   width: 1px;
   height: 1.05em;
-  margin-inline: clamp(1.1rem, 2.5vw, 2rem);
+  margin-inline: clamp(1.35rem, 3vw, 2.35rem);
   background: rgba(244, 240, 231, 0.22);
 }
 
 .marquee-track .marquee-accent {
   color: var(--green);
+}
+
+.gpc-marquee-sponsors {
+  background: #070807;
+  border-bottom-color: rgba(244, 240, 231, 0.08);
+}
+
+.gpc-marquee-sponsors .marquee-track {
+  padding: 0.78rem 0;
+}
+
+.gpc-marquee-sponsors .marquee-track span {
+  color: rgba(181, 185, 180, 0.58);
+  font-size: clamp(0.66rem, 0.95vw, 0.86rem);
+  letter-spacing: 0.22em;
+}
+
+.gpc-marquee-sponsors .marquee-track span::after {
+  height: 0.86em;
+  background: rgba(181, 185, 180, 0.16);
 }
 
 .story {
@@ -590,6 +618,11 @@ html.font-test-bounded .contact h2 {
   align-content: end;
   padding-top: 10rem;
   padding-bottom: clamp(5rem, 9vw, 9rem);
+}
+
+html .story-intro {
+  min-height: 76svh;
+  padding-top: clamp(8.6rem, 10vw, 10rem);
 }
 
 .story-intro h2 {
@@ -801,31 +834,89 @@ html.font-test-bounded .contact h2 {
   width: min(100% - 2.6rem, 1400px);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.68fr) minmax(0, 0.68fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.78fr) minmax(0, 0.82fr) minmax(0, 0.7fr);
   grid-template-rows:
-    minmax(19rem, clamp(22rem, 28vw, 31rem))
-    minmax(19rem, clamp(22rem, 28vw, 31rem))
-    minmax(13rem, clamp(15rem, 18vw, 20rem))
-    minmax(13rem, clamp(15rem, 18vw, 20rem))
-    minmax(13rem, clamp(15rem, 18vw, 20rem));
+    minmax(12rem, clamp(14rem, 17vw, 18rem))
+    minmax(11rem, clamp(13rem, 15vw, 17rem))
+    minmax(12rem, clamp(14rem, 17vw, 19rem))
+    minmax(11rem, clamp(13rem, 15vw, 17rem));
   grid-template-areas:
-    "community community trophy"
-    "community community coffee"
-    "handshake handshake match"
-    "handshake handshake court"
-    "lounge architecture architecture";
-  gap: clamp(1.25rem, 2vw, 2.25rem);
+    "community community trophy coffee"
+    "community community match coffee"
+    "handshake lounge match court"
+    "handshake architecture architecture court";
+  gap: clamp(0.9rem, 1.45vw, 1.65rem);
   align-items: stretch;
 }
 
 .gallery-photo {
+  --gallery-shift: 0rem;
   margin: 0;
   min-height: 0;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(244, 240, 231, 0.06);
+  border-radius: 0.28rem;
   background-color: #070807;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1.4rem 3.4rem rgba(0, 0, 0, 0.22);
+  transform: translateY(var(--gallery-shift));
+  transition:
+    filter 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.gallery-photo::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, transparent, rgba(22, 143, 212, 0.95), transparent) top left / 42% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgba(158, 196, 60, 0.95), transparent) bottom right / 42% 1px no-repeat,
+    linear-gradient(180deg, transparent, rgba(22, 143, 212, 0.85), transparent) top left / 1px 42% no-repeat,
+    linear-gradient(180deg, transparent, rgba(158, 196, 60, 0.85), transparent) bottom right / 1px 42% no-repeat;
+  opacity: 0;
+  background-position:
+    0 0,
+    100% 100%,
+    0 0,
+    100% 100%;
+  animation: gallery-border-drift 3.8s ease-in-out infinite alternate;
+  transition: opacity 220ms ease;
+}
+
+.gallery-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  transition: border-color 220ms ease;
+}
+
+@media (hover: hover) {
+  .gallery-photo:hover {
+    border-color: rgba(244, 240, 231, 0.14);
+    filter: saturate(1.05) contrast(1.03);
+    box-shadow: 0 1.9rem 4rem rgba(0, 0, 0, 0.3);
+    transform: translateY(calc(var(--gallery-shift) - 0.32rem));
+  }
+
+  .gallery-photo:hover::before {
+    opacity: 1;
+  }
+
+  .gallery-photo:hover::after {
+    border-color: rgba(244, 240, 231, 0.08);
+  }
 }
 
 .gallery-photo-wide {
@@ -846,6 +937,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-community {
   grid-area: community;
+  --gallery-shift: -0.18rem;
   background-position: center 38%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -862,6 +954,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-trophy {
   grid-area: trophy;
+  --gallery-shift: 0.4rem;
   background-position: 50% 32%;
 }
 
@@ -875,6 +968,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-match {
   grid-area: match;
+  --gallery-shift: 0.12rem;
   background-position: center;
 }
 
@@ -888,6 +982,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-coffee {
   grid-area: coffee;
+  --gallery-shift: -0.25rem;
   background-position: 50% 58%;
 }
 
@@ -901,6 +996,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-court {
   grid-area: court;
+  --gallery-shift: 0.28rem;
   background-position: 50% center;
 }
 
@@ -914,6 +1010,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-lounge {
   grid-area: lounge;
+  --gallery-shift: -0.08rem;
   background-position: 50% center;
 }
 
@@ -927,6 +1024,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-handshake {
   grid-area: handshake;
+  --gallery-shift: 0.18rem;
   background-position: 50% 22%;
 }
 
@@ -940,6 +1038,7 @@ html.font-test-bounded .contact h2 {
 
 .gallery-photo-architecture {
   grid-area: architecture;
+  --gallery-shift: -0.18rem;
   background-position: 50% 42%;
 }
 
@@ -995,6 +1094,11 @@ html.font-test-bounded .contact h2 {
   isolation: isolate;
 }
 
+.events-tournaments .gpc-kicker,
+.events-tournaments h2 span {
+  color: var(--green);
+}
+
 .events-tournaments.is-bg-loaded {
   background-image:
     image-set(
@@ -1020,9 +1124,9 @@ html.font-test-bounded .contact h2 {
   z-index: 1;
   min-height: calc(100svh - 16rem);
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(320px, 0.54fr);
-  gap: clamp(1.3rem, 3.6vw, 3.5rem);
-  align-items: end;
+  grid-template-columns: minmax(320px, 0.54fr) minmax(0, 0.78fr);
+  gap: clamp(2rem, 5vw, 5.4rem);
+  align-items: center;
 }
 
 .events-grid p {
@@ -1031,19 +1135,27 @@ html.font-test-bounded .contact h2 {
   font-size: clamp(1rem, 1.2vw, 1.14rem);
 }
 
+.events-grid > div:first-child {
+  grid-column: 2;
+  max-width: 43rem;
+  justify-self: end;
+}
+
 .events-copy {
+  grid-column: 1;
+  grid-row: 1;
   max-width: 30rem;
   display: grid;
-  gap: 0.9rem;
+  gap: 1rem;
+  align-self: center;
 }
 
 .events-copy article {
   display: grid;
-  gap: 0.85rem;
-  padding: 1.05rem;
-  border: 1px solid rgba(244, 240, 231, 0.14);
-  border-radius: 0.92rem;
-  background: rgba(6, 7, 6, 0.38);
+  gap: 1rem;
+  padding: 1.18rem 0 1.18rem 1.35rem;
+  border-left: 1px solid rgba(244, 240, 231, 0.14);
+  background: linear-gradient(90deg, rgba(6, 7, 6, 0.34), rgba(6, 7, 6, 0));
 }
 
 .events-copy p {
@@ -1120,27 +1232,42 @@ html.font-test-bounded .contact h2 {
   grid-template-columns: minmax(0, 0.68fr) minmax(300px, 0.42fr);
   gap: clamp(2.4rem, 7vw, 6rem);
   align-content: center;
-  align-items: end;
+  align-items: center;
+}
+
+.bar-content > div:first-child {
+  align-self: center;
 }
 
 .bar-copy {
-  max-width: 26rem;
+  max-width: 27rem;
   display: grid;
-  gap: 1rem;
+  gap: 1.15rem;
   align-self: end;
-  margin-bottom: 1.15rem;
-  padding: 1.05rem;
-  border: 1px solid rgba(244, 240, 231, 0.12);
-  border-radius: 0.92rem;
-  background: rgba(6, 7, 6, 0.28);
+  margin-bottom: 0;
+  transform: translateY(0.65rem);
+  padding: 1.35rem 0 1.35rem clamp(1.1rem, 2vw, 1.55rem);
+  border-left: 1px solid rgba(244, 240, 231, 0.14);
+  background: linear-gradient(90deg, rgba(6, 7, 6, 0.3), rgba(6, 7, 6, 0));
 }
 
 .bar-content p:not(.gpc-kicker),
 .bar-copy p {
   max-width: 24rem;
-  color: var(--muted);
+  color: rgba(244, 240, 231, 0.7);
   font-size: clamp(0.95rem, 1.08vw, 1.05rem);
-  line-height: 1.45;
+  line-height: 1.58;
+}
+
+.bar-copy p + p {
+  margin-top: -0.64rem;
+  color: rgba(244, 240, 231, 0.58);
+}
+
+.bar-copy p:first-child {
+  color: rgba(244, 240, 231, 0.88);
+  font-size: clamp(1.06rem, 1.25vw, 1.18rem);
+  line-height: 1.35;
 }
 
 .bar-copy .gpc-button {
@@ -1152,7 +1279,7 @@ html.font-test-bounded .contact h2 {
 .bar-features {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 0.65rem;
+  gap: 0.42rem 0.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1161,15 +1288,27 @@ html.font-test-bounded .contact h2 {
 .bar-features li {
   display: inline-flex;
   align-items: center;
-  min-height: 1.9rem;
-  padding: 0.28rem 0.62rem;
-  border: 1px solid rgba(244, 240, 231, 0.12);
+  min-height: 1.65rem;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid rgba(244, 240, 231, 0.08);
   border-radius: 999px;
-  background: rgba(6, 7, 6, 0.32);
-  color: rgba(244, 240, 231, 0.74);
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  background: rgba(6, 7, 6, 0.16);
+  color: rgba(244, 240, 231, 0.46);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.bar-features li:hover {
+  border-color: rgba(154, 205, 50, 0.34);
+  background: rgba(154, 205, 50, 0.08);
+  color: rgba(244, 240, 231, 0.72);
+  transform: translateY(-2px);
 }
 
 .sponsors {
@@ -1181,6 +1320,18 @@ html.font-test-bounded .contact h2 {
 
 .sponsors-head {
   margin-bottom: clamp(2.4rem, 4.2vw, 4.2rem);
+}
+
+.sponsors-head {
+  max-width: 54rem;
+}
+
+.sponsors-subtitle {
+  max-width: 37rem;
+  margin-top: 1.15rem;
+  color: rgba(244, 240, 231, 0.66);
+  font-size: clamp(0.98rem, 1.25vw, 1.16rem);
+  line-height: 1.55;
 }
 
 .sponsor-marquee {
@@ -1215,6 +1366,16 @@ html.font-test-bounded .contact h2 {
   opacity: 0.82;
 }
 
+.sponsor-note {
+  max-width: 48rem;
+  margin: clamp(2.1rem, 3.6vw, 3.2rem) auto 0;
+  padding-inline: var(--page-pad);
+  color: rgba(244, 240, 231, 0.55);
+  font-size: clamp(0.84rem, 1vw, 0.98rem);
+  line-height: 1.7;
+  text-align: center;
+}
+
 .location {
   margin-top: -1px;
   padding: clamp(5.4rem, 7.2vw, 7.2rem) 0 clamp(7.2rem, 9vw, 9.4rem);
@@ -1232,13 +1393,23 @@ html.font-test-bounded .contact h2 {
 }
 
 .location-grid {
-  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.12fr);
-  gap: clamp(2.8rem, 6vw, 5.8rem);
-  align-items: end;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.2rem, 2.8vw, 2.4rem);
+  align-items: stretch;
 }
 
 .location-grid > div:first-child {
-  max-width: 36rem;
+  max-width: none;
+  min-height: clamp(31rem, 43vw, 38rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 3vw, 3rem);
+  border: 1px solid rgba(244, 240, 231, 0.1);
+  border-radius: 1rem;
+  background:
+    linear-gradient(135deg, rgba(244, 240, 231, 0.055), rgba(244, 240, 231, 0.018)),
+    rgba(6, 7, 6, 0.22);
 }
 
 .location p:not(.gpc-kicker),
@@ -1286,7 +1457,7 @@ html.font-test-bounded .contact h2 {
 
 .map-wrap {
   position: relative;
-  min-height: 36rem;
+  min-height: clamp(31rem, 43vw, 38rem);
   padding: clamp(0.58rem, 1vw, 0.82rem);
   overflow: hidden;
   border: 1px solid rgba(244, 240, 231, 0.12);
@@ -1310,7 +1481,7 @@ html.font-test-bounded .contact h2 {
 
 .map-wrap iframe {
   width: 100%;
-  min-height: calc(36rem - 1.4rem);
+  min-height: calc(clamp(31rem, 43vw, 38rem) - 1.4rem);
   border: 0;
   border-radius: 0.78rem;
   filter: saturate(0.95) contrast(0.92) brightness(1);
@@ -1584,6 +1755,34 @@ html.font-test-bounded .contact h2 {
   }
 }
 
+@keyframes marquee-infinite-reverse {
+  from {
+    transform: translateX(-33.3333%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes gallery-border-drift {
+  from {
+    background-position:
+      0 0,
+      100% 100%,
+      0 0,
+      100% 100%;
+  }
+
+  to {
+    background-position:
+      58% 0,
+      42% 100%,
+      0 58%,
+      100% 42%;
+  }
+}
+
 @keyframes sponsor-infinite {
   from {
     transform: translateX(0);
@@ -1665,6 +1864,10 @@ html.font-test-bounded .contact h2 {
     min-height: 78svh;
     padding-top: 8rem;
     padding-bottom: 4rem;
+  }
+
+  html .story-intro {
+    min-height: 70svh;
   }
 
   .story-intro h2 {
@@ -1903,6 +2106,20 @@ html.font-test-bounded .contact h2 {
     align-items: start;
   }
 
+  .events-grid > div:first-child,
+  .events-copy {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: stretch;
+  }
+
+  .events-copy article {
+    padding: 1rem;
+    border-left: 0;
+    border: 1px solid rgba(244, 240, 231, 0.12);
+    background: rgba(6, 7, 6, 0.32);
+  }
+
   .events-tournaments.is-bg-loaded {
     background-image:
       image-set(
@@ -1920,6 +2137,15 @@ html.font-test-bounded .contact h2 {
   .location-details {
     margin-top: 1.25rem;
     gap: 0.42rem 0.85rem;
+  }
+
+  .location-grid > div:first-child {
+    min-height: auto;
+    display: block;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
   }
 
   .contact-actions .gpc-button {
@@ -2100,6 +2326,7 @@ html.font-test-bounded .contact h2 {
   .bar-copy {
     max-width: none;
     margin-bottom: 0;
+    transform: none;
     padding: 0;
     border: 0;
     background: transparent;
@@ -2132,6 +2359,10 @@ html.font-test-bounded .contact h2 {
   .events-actions .gpc-button,
   .bar-copy .gpc-button {
     width: 100%;
+  }
+
+  .gallery-photo {
+    --gallery-shift: 0rem;
   }
 
   .training-note {
