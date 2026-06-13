@@ -39,7 +39,7 @@ const galleryImages = [
   "gallery/gallery-lounge",
 ];
 
-const supportingImages = ["bar-gastronomia"];
+const supportingImages = ["bar-gastronomia", "bar"];
 
 const logos = [
   {

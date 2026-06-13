@@ -268,17 +268,76 @@
         <div class="gpc-container gallery-head">
           <p class="gpc-kicker">La experiencia Global</p>
           <h2>AS&Iacute; SE VIVE GLOBAL</h2>
-          <p class="gallery-hint">Desliz&aacute; para ver m&aacute;s</p>
+          <p class="gallery-subtitle">Momentos, experiencias y personas que hacen &uacute;nico al club.</p>
         </div>
-        <div class="gallery-composition">
-          <figure class="gallery-photo gallery-photo-wide gallery-photo-community" aria-label="Comunidad y torneo en Global Padel Center"></figure>
-          <figure class="gallery-photo gallery-photo-vertical gallery-photo-trophy" aria-label="Campeonas levantando la copa"></figure>
-          <figure class="gallery-photo gallery-photo-horizontal gallery-photo-match" aria-label="Partido de p&aacute;del en cancha indoor"></figure>
-          <figure class="gallery-photo gallery-photo-tall gallery-photo-coffee" aria-label="Cafeter&iacute;a con vista a las canchas"></figure>
-          <figure class="gallery-photo gallery-photo-horizontal gallery-photo-court" aria-label="Cancha indoor y red de p&aacute;del"></figure>
-          <figure class="gallery-photo gallery-photo-vertical gallery-photo-lounge" aria-label="Bar lounge de Global Padel Center"></figure>
-          <figure class="gallery-photo gallery-photo-horizontal gallery-photo-handshake" aria-label="Encuentro entre jugadores despu&eacute;s del partido"></figure>
-          <figure class="gallery-photo gallery-photo-tall gallery-photo-architecture" aria-label="Arquitectura interior del club"></figure>
+        <div class="global-stories" aria-label="Experiencias Global">
+          <button class="story-card story-media-torneos" type="button" data-story-open="torneos">
+            <span class="story-card-index">01</span>
+            <span class="story-card-content">
+              <strong>Torneos</strong>
+              <small>Competencia, comunidad y partidos que importan.</small>
+              <em>Ver historia</em>
+            </span>
+          </button>
+          <button class="story-card story-media-clases" type="button" data-story-open="clases">
+            <span class="story-card-index">02</span>
+            <span class="story-card-content">
+              <strong>Clases</strong>
+              <small>Entrenamiento para mejorar punto por punto.</small>
+              <em>Ver historia</em>
+            </span>
+          </button>
+          <button class="story-card story-media-after" type="button" data-story-open="after">
+            <span class="story-card-index">03</span>
+            <span class="story-card-content">
+              <strong>After p&aacute;del</strong>
+              <small>El partido sigue en el bar, entre amigos y tercer tiempo.</small>
+              <em>Ver historia</em>
+            </span>
+          </button>
+          <button class="story-card story-media-comunidad" type="button" data-story-open="comunidad">
+            <span class="story-card-index">04</span>
+            <span class="story-card-content">
+              <strong>Comunidad</strong>
+              <small>Personas, encuentros y momentos de club.</small>
+              <em>Ver historia</em>
+            </span>
+          </button>
+          <button class="story-card story-media-eventos" type="button" data-story-open="eventos">
+            <span class="story-card-index">05</span>
+            <span class="story-card-content">
+              <strong>Eventos</strong>
+              <small>Experiencias especiales dentro y fuera de la cancha.</small>
+              <em>Ver historia</em>
+            </span>
+          </button>
+          <button class="story-card story-media-club" type="button" data-story-open="club">
+            <span class="story-card-index">06</span>
+            <span class="story-card-content">
+              <strong>El club</strong>
+              <small>Arquitectura, luz y detalles pensados para quedarse.</small>
+              <em>Ver historia</em>
+            </span>
+          </button>
+        </div>
+        <div class="stories-viewer" data-stories-viewer aria-hidden="true">
+          <button class="stories-close" type="button" data-stories-close aria-label="Cerrar historia">Cerrar</button>
+          <div class="stories-viewer-inner" role="dialog" aria-modal="true" aria-label="Historia Global">
+            <div class="stories-media-wrap">
+              <figure class="stories-media" data-stories-media></figure>
+              <div class="stories-nav" aria-label="Navegaci&oacute;n de historias">
+                <button type="button" data-stories-prev aria-label="Historia anterior">Anterior</button>
+                <button type="button" data-stories-next aria-label="Historia siguiente">Siguiente</button>
+              </div>
+              <div class="stories-thumbs" data-stories-thumbs aria-label="Miniaturas de historias"></div>
+            </div>
+            <div class="stories-copy">
+              <p class="stories-category" data-stories-category></p>
+              <h3 data-stories-title></h3>
+              <p data-stories-description></p>
+              <ul data-stories-points></ul>
+            </div>
+          </div>
         </div>
       </section>
 
