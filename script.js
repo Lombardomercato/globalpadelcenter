@@ -43,6 +43,33 @@ mapEnableButton?.addEventListener("click", () => {
   mapEnableButton.closest(".map-wrap")?.classList.add("is-map-active");
 });
 
+const trackAnalyticsEvent = (eventName, params = {}) => {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", eventName, {
+    event_category: "engagement",
+    ...params,
+  });
+};
+
+document.querySelectorAll("[data-ga-event]").forEach((element) => {
+  element.addEventListener("click", () => {
+    const eventPayload = {
+      event_label: element.dataset.gaLabel || element.textContent.trim(),
+      link_url: element.href || "",
+      link_text: element.textContent.trim().replace(/\s+/g, " "),
+    };
+
+    trackAnalyticsEvent(element.dataset.gaEvent, eventPayload);
+
+    if (element.href?.includes("wa.me/") && element.dataset.gaEvent !== "click_whatsapp") {
+      trackAnalyticsEvent("click_whatsapp", {
+        ...eventPayload,
+        whatsapp_action: element.dataset.gaEvent,
+      });
+    }
+  });
+});
+
 const storyData = [
   {
     id: "torneos",
@@ -106,6 +133,13 @@ const storiesPrev = document.querySelector("[data-stories-prev]");
 const storiesNext = document.querySelector("[data-stories-next]");
 let activeStoryIndex = 0;
 let storyTouchStart = 0;
+let storyPointerStart = 0;
+let activeStoryTrigger = null;
+
+const handleStorySwipe = (delta) => {
+  if (Math.abs(delta) < 48) return;
+  renderStory(activeStoryIndex + (delta < 0 ? 1 : -1));
+};
 
 const renderStory = (index) => {
   if (!storiesViewer || !storiesMedia) return;
@@ -144,6 +178,7 @@ if (storiesViewer && storiesThumbs) {
 
   document.querySelectorAll("[data-story-open]").forEach((button) => {
     button.addEventListener("click", () => {
+      activeStoryTrigger = button;
       const index = storyData.findIndex((story) => story.id === button.getAttribute("data-story-open"));
       renderStory(index >= 0 ? index : 0);
       storiesViewer.classList.add("is-open");
@@ -157,6 +192,7 @@ if (storiesViewer && storiesThumbs) {
     storiesViewer.classList.remove("is-open");
     storiesViewer.setAttribute("aria-hidden", "true");
     document.body.classList.remove("stories-open");
+    activeStoryTrigger?.focus();
   };
 
   storiesClose?.addEventListener("click", closeStories);
@@ -170,9 +206,14 @@ if (storiesViewer && storiesThumbs) {
   }, { passive: true });
   storiesViewer.addEventListener("touchend", (event) => {
     const delta = (event.changedTouches[0]?.clientX ?? 0) - storyTouchStart;
-    if (Math.abs(delta) < 48) return;
-    renderStory(activeStoryIndex + (delta < 0 ? 1 : -1));
+    handleStorySwipe(delta);
   }, { passive: true });
+  storiesViewer.addEventListener("pointerdown", (event) => {
+    storyPointerStart = event.clientX;
+  });
+  storiesViewer.addEventListener("pointerup", (event) => {
+    handleStorySwipe(event.clientX - storyPointerStart);
+  });
 
   window.addEventListener("keydown", (event) => {
     if (!storiesViewer.classList.contains("is-open")) return;

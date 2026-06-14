@@ -851,7 +851,7 @@ html .story-intro {
   grid-template-rows: auto 1fr;
   overflow: hidden;
   padding: clamp(1rem, 1.35vw, 1.25rem);
-  border: 1px solid rgba(244, 240, 231, 0.1);
+  border: 1px solid rgba(244, 240, 231, 0.14);
   border-radius: 0.34rem;
   background-color: #070807;
   background-size: cover;
@@ -860,7 +860,9 @@ html .story-intro {
   text-align: left;
   cursor: pointer;
   isolation: isolate;
-  box-shadow: 0 1.4rem 3.4rem rgba(0, 0, 0, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(6, 7, 6, 0.48),
+    0 1.4rem 3.4rem rgba(0, 0, 0, 0.22);
   transition:
     border-color 220ms ease,
     filter 220ms ease,
@@ -882,10 +884,10 @@ html .story-intro {
   content: "";
   position: absolute;
   inset: 0.58rem;
-  border: 1px solid rgba(244, 240, 231, 0.08);
+  border: 1px solid rgba(244, 240, 231, 0.055);
   border-radius: 0.18rem;
-  opacity: 0;
-  transform: scale(0.985);
+  opacity: 1;
+  transform: scale(1);
   transition:
     opacity 220ms ease,
     transform 220ms ease,
@@ -895,7 +897,9 @@ html .story-intro {
 .story-card:hover {
   border-color: rgba(158, 196, 60, 0.34);
   filter: saturate(1.04) contrast(1.04);
-  box-shadow: 0 1.9rem 4.4rem rgba(0, 0, 0, 0.34);
+  box-shadow:
+    inset 0 0 0 1px rgba(6, 7, 6, 0.36),
+    0 1.9rem 4.4rem rgba(0, 0, 0, 0.34);
   transform: translateY(-0.35rem);
 }
 
@@ -1054,6 +1058,7 @@ html .story-intro {
     radial-gradient(circle at 82% 88%, rgba(158, 196, 60, 0.1), transparent 28%),
     rgba(3, 4, 3, 0.94);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transform: scale(1.015);
   transition:
@@ -1063,8 +1068,10 @@ html .story-intro {
 
 .stories-viewer.is-open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: scale(1);
+  transition-delay: 0s;
 }
 
 .stories-viewer-inner {
@@ -2082,6 +2089,7 @@ body.stories-open {
 
 .footer-newsletter input {
   width: 100%;
+  min-height: 2.75rem;
   padding: 0.44rem 0.58rem;
   outline: 0;
 }
@@ -2100,15 +2108,123 @@ body.stories-open {
   cursor: pointer;
 }
 
+.footer-newsletter > div:focus-within {
+  border-color: rgba(22, 143, 212, 0.62);
+  box-shadow: 0 0 0 3px rgba(22, 143, 212, 0.14);
+}
+
+.gpc-footer a:focus-visible,
+.footer-newsletter input:focus-visible,
+.footer-newsletter button:focus-visible,
+.stories-close:focus-visible,
+.stories-nav button:focus-visible,
+.stories-thumbs button:focus-visible,
+.story-card:focus-visible {
+  outline: 2px solid rgba(158, 196, 60, 0.72);
+  outline-offset: 3px;
+}
+
 .footer-bottom {
   margin-top: 0.7rem;
   padding-top: 0.5rem;
   border-top: 1px solid rgba(244, 240, 231, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .footer-bottom a {
   color: rgba(244, 240, 231, 0.44);
   font-size: 0.72rem;
+}
+
+.footer-legal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.7rem, 2vw, 1.1rem);
+}
+
+.legal-page {
+  min-height: 100vh;
+  padding-top: clamp(7.5rem, 13vw, 10rem);
+  background:
+    radial-gradient(circle at 80% 0%, rgba(22, 143, 212, 0.08), transparent 28rem),
+    linear-gradient(180deg, rgba(244, 240, 231, 0.025), transparent 14rem),
+    var(--bg);
+}
+
+.legal-container {
+  width: min(100% - 2rem, 820px);
+}
+
+.legal-hero {
+  padding: 0 0 clamp(2.2rem, 6vw, 4.5rem);
+}
+
+.legal-hero .gpc-kicker {
+  margin-bottom: 1.15rem;
+}
+
+.legal-hero h1 {
+  max-width: 13ch;
+  color: var(--ink);
+  font-family: "Clash Display", "Satoshi", system-ui, sans-serif;
+  font-size: clamp(3.2rem, 9vw, 6.8rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.font-bounded .legal-hero h1 {
+  font-family: "Bounded Trial", "Clash Display", system-ui, sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  letter-spacing: -0.03em;
+}
+
+.legal-hero h1 span {
+  color: var(--green);
+}
+
+.legal-hero p:not(.gpc-kicker) {
+  max-width: 38rem;
+  margin-top: 1.4rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  line-height: 1.55;
+}
+
+.legal-content {
+  padding: 0 0 clamp(4rem, 9vw, 7rem);
+}
+
+.legal-content .legal-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.legal-content article {
+  padding: clamp(1rem, 2.6vw, 1.35rem) 0;
+  border-top: 1px solid rgba(244, 240, 231, 0.12);
+}
+
+.legal-content h2 {
+  margin-bottom: 0.55rem;
+  color: var(--ink);
+  font-family: "Satoshi", system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.legal-content p {
+  max-width: 62ch;
+  color: rgba(244, 240, 231, 0.68);
+  font-size: clamp(0.96rem, 1.6vw, 1.05rem);
+  line-height: 1.68;
 }
 
 .reveal {
@@ -2993,6 +3109,35 @@ body.stories-open {
   .footer-bottom {
     margin-top: 0.62rem;
     padding-top: 0.52rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.7rem;
+  }
+
+  .legal-page {
+    padding-top: 6.8rem;
+  }
+
+  .legal-container {
+    width: min(100% - 1.5rem, 820px);
+  }
+
+  .legal-hero .gpc-kicker {
+    margin-bottom: 0.85rem;
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(2.7rem, 14vw, 4.15rem);
+  }
+
+  .font-bounded .legal-hero h1 {
+    font-size: clamp(2rem, 10vw, 3.4rem);
   }
 }
 
