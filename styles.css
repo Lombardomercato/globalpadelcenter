@@ -1541,7 +1541,12 @@ body.stories-open {
   grid-column: 2;
   max-width: 43rem;
   justify-self: end;
+  text-align: right;
   transform: translateX(clamp(1rem, 2vw, 2.25rem));
+}
+
+.events-grid > div:first-child .gpc-kicker {
+  justify-content: flex-end;
 }
 
 .events-copy {
@@ -2616,6 +2621,14 @@ body.stories-open {
     grid-row: auto;
     justify-self: stretch;
     transform: none;
+  }
+
+  .events-grid > div:first-child {
+    text-align: left;
+  }
+
+  .events-grid > div:first-child .gpc-kicker {
+    justify-content: flex-start;
   }
 
   .events-copy article {
