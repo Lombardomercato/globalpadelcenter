@@ -637,11 +637,86 @@ html .story-intro {
   color: var(--green);
 }
 
-.story-intro > p:not(.story-eyebrow) {
+.story-intro > p:not(.story-eyebrow),
+.story-intro-bottom > p {
   max-width: 25rem;
   margin-top: 1.35rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.35vw, 1.22rem);
+}
+
+.story-intro-bottom {
+  display: grid;
+  grid-template-columns: minmax(16rem, 25rem) minmax(24rem, 0.78fr);
+  gap: clamp(2rem, 6vw, 6.5rem);
+  align-items: start;
+}
+
+.story-stats {
+  width: min(100%, 43rem);
+  justify-self: end;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(1.2rem, 2vw, 1.55rem);
+  border-top: 1px solid rgba(244, 240, 231, 0.1);
+  border-bottom: 1px solid rgba(244, 240, 231, 0.1);
+  background: linear-gradient(90deg, rgba(6, 7, 6, 0), rgba(244, 240, 231, 0.025), rgba(6, 7, 6, 0));
+}
+
+.story-stat {
+  min-height: 5.65rem;
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  gap: 0.82rem;
+  align-content: start;
+  align-items: start;
+  padding: 1.35rem clamp(0.8rem, 1.8vw, 1.35rem) 1rem;
+  border-left: 1px solid rgba(244, 240, 231, 0.09);
+}
+
+.story-stat:first-child {
+  border-left: 0;
+}
+
+.story-stat svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  margin-top: 0.05rem;
+  color: var(--green);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.story-stat p {
+  margin: 0;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.story-stat strong {
+  display: flex;
+  align-items: baseline;
+  min-height: 1.9rem;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 1.85vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.story-stat strong span,
+.story-stat strong b {
+  font: inherit;
+}
+
+.story-stat p > span {
+  display: block;
+  color: rgba(244, 240, 231, 0.54);
+  font-size: 0.68rem;
+  line-height: 1.22;
 }
 
 .story-chapters {
@@ -2563,8 +2638,36 @@ body.stories-open {
     font-size: clamp(3.25rem, 18.5vw, 5.4rem);
   }
 
-  .story-intro > p:not(.story-eyebrow) {
+  .story-intro > p:not(.story-eyebrow),
+  .story-intro-bottom > p {
     max-width: 20rem;
+  }
+
+  .story-intro-bottom {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .story-stats {
+    width: 100%;
+    grid-template-columns: 1fr;
+    justify-self: stretch;
+    margin-top: 0;
+  }
+
+  .story-stat {
+    min-height: 4.95rem;
+    padding: 0.9rem 0;
+    border-left: 0;
+    border-top: 1px solid rgba(244, 240, 231, 0.09);
+  }
+
+  .story-stat:first-child {
+    border-top: 0;
+  }
+
+  .story-stat strong {
+    font-size: 1.5rem;
   }
 
   .story-chapter h3 {
