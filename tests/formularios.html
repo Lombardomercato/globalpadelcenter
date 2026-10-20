@@ -1,0 +1,67 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="robots" content="noindex,nofollow" /><title>Verificación de formularios — Borrador Global</title><style>body{font:16px system-ui;background:#10140f;color:#f4f0e7;padding:2rem}li{margin:1rem 0}.fixture{position:absolute;left:-20000px;width:900px}</style></head><body><h1>Verificación de formularios</h1><p>Pruebas con datos ficticios y respuestas simuladas. No se envían consultas al club.</p><ol id="results"></ol><p id="summary">Ejecutando…</p><div id="fixture" class="fixture"></div><script>
+(async()=>{
+const mode=new URLSearchParams(location.search).get("modo")||"recepcion";
+const endpoint="https://capture.example.test/inquiries";
+window.GPC_CONFIG={review:true,forms:{endpoint:mode==="whatsapp"?"":endpoint,timeoutMs:30},measurement:{gtmId:"",ga4Id:"",metaPixelId:""}};
+const results=document.getElementById("results"),nativeFetch=window.fetch.bind(window);
+let calls=[],behavior="ok",openings=[],deferred;
+window.open=(url)=>{openings.push(url);return null;};
+window.fetch=async(url,options)=>{
+ if(url!==endpoint)return nativeFetch(url,options);
+ calls.push(JSON.parse(options.body));
+ if(behavior==="timeout")return new Promise((_,reject)=>options.signal.addEventListener("abort",()=>reject(new Error("timeout"))));
+ if(behavior==="pending")return new Promise(resolve=>{deferred=()=>resolve(new Response(JSON.stringify({received:true}),{status:200}));});
+ return new Response(JSON.stringify(behavior==="ok"?{received:true}:{}),{status:200});
+};
+const html=await(await nativeFetch("../index.html")).text(),parsed=new DOMParser().parseFromString(html,"text/html");
+for(const f of parsed.querySelectorAll("[data-inquiry-form]"))document.getElementById("fixture").append(document.importNode(f,true));
+const load=src=>new Promise((resolve,reject)=>{const s=document.createElement("script");s.src=src;s.onload=resolve;s.onerror=reject;document.body.append(s);});
+await load("../measurement.js?v=review-2");await load("../script.js?v=review-2");
+const pause=()=>new Promise(r=>setTimeout(r,10));
+const assert=(v,label)=>{if(!v)throw Error(label);const li=document.createElement("li");li.textContent="OK — "+label;results.append(li);};
+const fill=form=>{
+ for(const el of form.querySelectorAll("input,select,textarea")){
+ if(el.type==="hidden")continue;
+ if(el.tagName==="SELECT"){el.selectedIndex=1;}
+ else if(el.type==="date")el.value="2099-11-01";
+ else if(el.type==="time")el.value="19:00";
+ else if(el.type==="number")el.value="20";
+ else if(el.type==="tel")el.value="0000000000";
+ else if(el.type==="email")el.value="qa@example.test";
+ else el.value=el.name==="nombre"?"Prueba ficticia":"Consulta ficticia de verificación";
+ el.dispatchEvent(new Event("input",{bubbles:true}));
+ }
+};
+const forms=[...document.forms];
+try{
+const first=forms[0];fill(first);first.elements.telefono.value="abc123";first.requestSubmit();await pause();
+assert(calls.length===0&&openings.length===0,"Teléfono inválido bloqueado");
+for(const form of forms){fill(form);form.requestSubmit();await pause();}
+if(mode==="whatsapp"){
+ assert(openings.length===3,"Los tres formularios preparan WhatsApp sin abrir un proveedor real");
+ assert(calls.length===0,"No hay captura automática en modo WhatsApp");
+ assert(forms.every(f=>f.elements.nombre.value==="Prueba ficticia"),"Los datos permanecen si se vuelve desde WhatsApp");
+ const msg=new URL(openings[1]).searchParams.get("text");
+ assert(msg.includes("Tipo de evento")&&msg.includes("Personas aproximadas")&&msg.includes("2099-11-01")&&msg.includes("19:00"),"La consulta de eventos incluye la precalificación");
+ assert(!window.dataLayer.some(e=>e.event==="inquiry_form_received"),"Abrir WhatsApp no genera un lead recibido");
+}else{
+ assert(calls.length===3,"Los tres formularios envían al destino simulado");
+ assert(forms.every(f=>f.querySelector(".form-status").textContent.includes("Recibimos tu consulta")),"Éxito solo después de recibo explícito");
+ assert(forms.every(f=>f.elements.nombre.value===""),"Los campos se limpian después de la recepción");
+ const before=window.dataLayer.filter(e=>e.event==="inquiry_form_received").length;
+ behavior="unconfirmed";fill(first);first.requestSubmit();await pause();
+ assert(first.querySelector(".form-status").textContent.includes("No pudimos confirmar"),"HTTP 200 sin received:true no confirma recepción");
+ assert(first.elements.nombre.value==="Prueba ficticia","Un error conserva los campos");
+ assert(window.dataLayer.filter(e=>e.event==="inquiry_form_received").length===before,"Un recibo no confirmado no genera lead");
+ behavior="timeout";fill(first);first.requestSubmit();await new Promise(r=>setTimeout(r,55));
+ assert(!first.querySelector("fieldset").disabled&&first.querySelector(".form-status").textContent.includes("No pudimos confirmar"),"Timeout recuperable con alternativa WhatsApp");
+ behavior="pending";fill(first);const count=calls.length;first.requestSubmit();first.requestSubmit();await pause();assert(calls.length===count+1,"Doble envío bloqueado durante la recepción");deferred();await pause();
+ assert(calls[1].tipo_evento&&calls[1].personas&&calls[1].fecha&&calls[1].horario&&calls[1].gastronomia,"El envío de eventos conserva los campos específicos");
+}
+const telemetry=JSON.stringify(window.dataLayer);
+assert(!telemetry.includes("Prueba ficticia")&&!telemetry.includes("0000000000")&&!telemetry.includes("qa@example.test")&&!telemetry.includes("Consulta ficticia"),"La medición no contiene los campos personales");
+assert(![...document.scripts].some(s=>/googletagmanager|facebook.net/.test(s.src)),"Ningún proveedor de medición cargado sin identificadores");
+document.getElementById("summary").textContent=results.children.length+" comprobaciones aprobadas — "+mode;
+}catch(error){const li=document.createElement("li");li.textContent="ERROR — "+error.message;results.append(li);document.getElementById("summary").textContent="Prueba fallida";}
+})();
+</script></body></html>
