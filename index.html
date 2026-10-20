@@ -70,14 +70,15 @@
         <a class="gpc-logo" href="#inicio" aria-label="Global Padel Center inicio">
           <img src="./assets/optimized/global-padel-logo-header.png" alt="Global Padel Center" />
         </a>
-        <button class="gpc-menu-button" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-button>
+        <button class="gpc-menu-button" aria-label="Abrir menú" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-button>
           <span></span><span></span>
         </button>
         <div class="gpc-menu" id="menu-principal" data-menu>
           <a href="#club">Club</a>
           <a href="#bar">Bar</a>
           <a href="#torneos">Clases</a>
-          <a href="#marcas">Marcas</a>
+          <a href="#eventos">Eventos</a>
+          <a href="#viandas">Viandas</a>
           <a href="#experiencia">Experiencia</a>
           <a href="#contacto">Contacto</a>
         </div>
@@ -89,19 +90,22 @@
       <section class="gpc-hero scene scene-hero" data-scene>
         <div class="scene-bg" data-parallax aria-hidden="true"></div>
         <div class="scene-shade" aria-hidden="true"></div>
-        <div class="gpc-container scene-inner">
-          <p class="gpc-kicker">ROSARIO &middot; ENTRE R&Iacute;OS 542</p>
-          <h1><span>AC&Aacute;</span><span>SE JUEGA</span><span>DISTINTO</span></h1>
-          <div class="hero-bottom">
-            <div class="hero-copy">
-              <p class="hero-lead">El p&aacute;del evolucion&oacute;.<br />La forma de vivirlo tambi&eacute;n.</p>
-              <p class="hero-description">Entrenamiento, competencia, gastronom&iacute;a y comunidad en un espacio dise&ntilde;ado para quienes viven el deporte dentro y fuera de la cancha.</p>
-            </div>
+        <div class="gpc-container scene-inner hero-commercial">
+          <div class="hero-intro">
+            <p class="gpc-kicker">ROSARIO · ENTRE RÍOS 542</p>
+            <h1><span>ACÁ</span><span>SE JUEGA</span><span>DISTINTO</span></h1>
+            <p class="hero-lead">El pádel evolucionó.<br />La forma de vivirlo también.</p>
+            <p class="hero-description">Pádel, eventos y gastronomía. Elegí cómo querés vivir Global y consultanos por WhatsApp.</p>
             <div class="gpc-actions">
-              <a class="gpc-button gpc-button-primary" href="https://wa.me/543417560704?text=Hola%20Global%20Padel%20Center%2C%20quiero%20reservar%20una%20cancha" target="_blank" rel="noopener noreferrer">Reservar cancha</a>
-              <a class="gpc-button" href="#torneos">Ver torneos</a>
+              <a class="gpc-button" href="#torneos">Pádel y clases</a>
+              <a class="gpc-button" href="#eventos">Organizá tu evento</a>
             </div>
           </div>
+          <aside class="inquiry-panel hero-inquiry" aria-labelledby="hero-inquiry-title">
+            <p class="gpc-kicker">Hablemos</p>
+            <h2 id="hero-inquiry-title">Tu próxima experiencia empieza acá.</h2>
+            <form id="hero-inquiry" class="inquiry-form inquiry-form-short" data-inquiry-form data-form-location="hero-inquiry" action="https://wa.me/543417560704" method="get"><fieldset disabled><legend class="sr-only">Consulta a Global Padel Center</legend><div class="form-fields"><label for="hero-inquiry-name">Nombre<input id="hero-inquiry-name" name="nombre" type="text" autocomplete="given-name" maxlength="80" required /></label><label for="hero-inquiry-phone">WhatsApp<input id="hero-inquiry-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" minlength="6" required /></label><label for="hero-inquiry-service">¿Qué te interesa?<select id="hero-inquiry-service" name="servicio" required><option value="" disabled selected>Elegí una opción</option><option value="Eventos">Eventos</option><option value="Viandas">Viandas</option><option value="Bar / Gastronomía">Bar / Gastronomía</option><option value="Pádel">Pádel / Canchas</option></select></label></div><p class="form-note">Se abrirá WhatsApp con tu consulta. Revisá el mensaje y envialo para que podamos responderte.</p><button class="gpc-button gpc-button-primary" type="submit">Continuar en WhatsApp <span aria-hidden="true">↗</span></button><p class="form-status" role="status" aria-live="polite"></p><p class="form-privacy">Tus datos se usan para esta consulta. <a href="./privacidad.html">Privacidad</a></p></fieldset></form><noscript><p class="form-note">Para consultar, <a href="https://wa.me/543417560704">escribinos por WhatsApp</a>.</p></noscript>
+          </aside>
         </div>
       </section>
 
@@ -170,7 +174,8 @@
             <h2>EL <span>TERCER</span> TIEMPO EMPIEZA AC&Aacute;</h2>
           </div>
           <div class="bar-copy">
-            <p>No se trata de vender comida. Se trata de encuentros: cerveza, caf&eacute;, charlas, amigos y after p&aacute;del.</p>
+            <p>Cerveza, café, charlas y after pádel. Conocé la propuesta gastronómica de Global y consultá el menú vigente, los horarios y las opciones de reserva.</p>
+            <p class="bar-details">¿Querés venir solo al bar? Consultanos por el acceso y la disponibilidad para tu visita.</p>
             <a class="gpc-button" href="https://wa.me/543417560704?text=Hola%20Global%20Padel%20Center%2C%20quiero%20consultar%20el%20men%C3%BA%2C%20los%20horarios%20y%20las%20reservas%20del%20bar." target="_blank" rel="noopener noreferrer">Consultar por el bar</a>
           </div>
         </div>
@@ -191,6 +196,41 @@
               <p>Clases para todos los niveles, entrenamiento personalizado y profesores especializados para mejorar punto por punto.</p>
               <a class="gpc-button" href="https://wa.me/543417560704?text=Hola%20Global.%20Quiero%20recibir%20informaci%C3%B3n%20sobre%20clases%20y%20entrenamientos." target="_blank" rel="noopener noreferrer">Consultar clases</a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="commercial-section" id="eventos" aria-labelledby="eventos-title">
+        <div class="gpc-container commercial-grid">
+          <div class="commercial-copy">
+            <p class="gpc-kicker">Eventos en Global</p>
+            <h2 id="eventos-title">Tu grupo.<br /><span>Un plan distinto.</span></h2>
+            <p>Contanos qué querés organizar, cuándo y cuántas personas serían. El equipo te orienta sobre disponibilidad, propuesta gastronómica y opciones de pádel para tu encuentro.</p>
+            <img class="commercial-photo" src="./assets/optimized/gallery-gallery-lounge-desktop.webp" alt="Espacio de bar lounge de Global Padel Center" width="1200" height="800" loading="lazy" />
+            <details><summary>¿Qué necesito para consultar?</summary><p>Una fecha estimada, el horario y la cantidad aproximada de personas. También podés indicar si te interesa sumar gastronomía o pádel.</p></details>
+            <details><summary>¿Cómo confirmo un evento?</summary><p>Consultá con el equipo la capacidad, los servicios incluidos, el presupuesto y las condiciones de reserva, seña y cancelación. La consulta no confirma una reserva.</p></details>
+          </div>
+          <div class="inquiry-panel" aria-labelledby="event-form-title">
+            <p class="gpc-kicker">Contanos tu idea</p>
+            <h3 id="event-form-title">Consultá por tu evento</h3>
+            <p class="panel-intro">Completá los datos para preparar tu consulta. Las opciones y la disponibilidad se confirman con el equipo.</p>
+            <form id="event-inquiry" class="inquiry-form " data-inquiry-form data-form-location="event-inquiry" action="https://wa.me/543417560704" method="get"><fieldset disabled><legend class="sr-only">Consulta de eventos</legend><div class="form-fields"><label for="event-inquiry-name">Nombre<input id="event-inquiry-name" name="nombre" type="text" autocomplete="given-name" maxlength="80" required /></label><label for="event-inquiry-phone">WhatsApp<input id="event-inquiry-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" minlength="6" required /></label><input type="hidden" name="servicio" value="Eventos" /><label for="event-inquiry-type">Tipo de evento<select id="event-inquiry-type" name="tipo_evento" required><option value="" disabled selected>Elegí una opción</option><option>Social</option><option>Corporativo</option><option>Deportivo</option><option>Otro</option></select></label><label for="event-inquiry-people">Personas aproximadas<input id="event-inquiry-people" name="personas" type="number" min="1" step="1" max="10000" required /></label><label for="event-inquiry-date">Fecha estimada<input id="event-inquiry-date" name="fecha" type="date" required /></label><label for="event-inquiry-time">Horario estimado<input id="event-inquiry-time" name="horario" type="time" required /></label><label for="event-inquiry-food">¿Necesitás gastronomía?<select id="event-inquiry-food" name="gastronomia" required><option value="" disabled selected>Elegí una opción</option><option>Sí</option><option>No</option><option>A definir</option></select></label><label class="form-wide" for="event-inquiry-message">Mensaje (opcional)<textarea id="event-inquiry-message" name="mensaje" rows="3" maxlength="800"></textarea></label></div><p class="form-note">Se abrirá WhatsApp con tu consulta. Revisá el mensaje y envialo para que podamos responderte.</p><button class="gpc-button gpc-button-primary" type="submit">Continuar en WhatsApp <span aria-hidden="true">↗</span></button><p class="form-status" role="status" aria-live="polite"></p><p class="form-privacy">Tus datos se usan para esta consulta. <a href="./privacidad.html">Privacidad</a></p></fieldset></form><noscript><p class="form-note">Para consultar, <a href="https://wa.me/543417560704">escribinos por WhatsApp</a>.</p></noscript>
+          </div>
+        </div>
+      </section>
+
+      <section class="commercial-section meal-section" id="viandas" aria-labelledby="viandas-title">
+        <div class="gpc-container meal-grid">
+          <div class="commercial-copy">
+            <p class="gpc-kicker">Viandas</p>
+            <h2 id="viandas-title">Consultá el<br /><span>menú de viandas.</span></h2>
+            <p>Escribinos para conocer la propuesta vigente y confirmar las opciones disponibles antes de hacer tu pedido.</p>
+          </div>
+          <div class="service-info">
+            <p class="gpc-kicker">Antes de pedir</p>
+            <ul><li>Menú, precios y opciones de packs.</li><li>Días y anticipación para pedir.</li><li>Disponibilidad de retiro o envío y zonas.</li><li>Medios de pago.</li></ul>
+            <a class="gpc-button gpc-button-primary" href="https://wa.me/543417560704?text=Hola%20Global%20Padel%20Center%2C%20quiero%20consultar%20si%20tienen%20viandas%20disponibles.%20%C2%BFMe%20pasan%20el%20men%C3%BA%2C%20precios%2C%20packs%2C%20d%C3%ADas%20de%20pedido%2C%20opciones%20de%20retiro%20o%20env%C3%ADo%20y%20medios%20de%20pago%3F" target="_blank" rel="noopener noreferrer" data-service="viandas">Consultar viandas por WhatsApp</a>
+            <p class="form-note">El equipo confirma disponibilidad, precios y modalidad de pedido.</p>
           </div>
         </div>
       </section>
@@ -292,6 +332,17 @@
           </div>
         </div>
       </section>
+      <section class="commercial-section final-inquiry" id="consulta" aria-labelledby="consulta-title">
+        <div class="gpc-container commercial-grid">
+          <div class="commercial-copy">
+            <p class="gpc-kicker">Tu consulta</p>
+            <h2 id="consulta-title">Elegí tu plan.<br /><span>Hablemos.</span></h2>
+            <p>Eventos, viandas, bar o pádel. Dejanos tu consulta preparada y continuá la conversación por WhatsApp.</p>
+            <div class="service-links" aria-label="Información por servicio"><a href="#eventos">Eventos ↗</a><a href="#viandas">Viandas ↗</a><a href="#bar">Bar / Gastronomía ↗</a><a href="#torneos">Pádel / Canchas ↗</a></div>
+          </div>
+          <div class="inquiry-panel"><form id="footer-inquiry" class="inquiry-form " data-inquiry-form data-form-location="footer-inquiry" action="https://wa.me/543417560704" method="get"><fieldset disabled><legend class="sr-only">Consulta a Global Padel Center</legend><div class="form-fields"><label for="footer-inquiry-name">Nombre<input id="footer-inquiry-name" name="nombre" type="text" autocomplete="given-name" maxlength="80" required /></label><label for="footer-inquiry-phone">WhatsApp<input id="footer-inquiry-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" minlength="6" required /></label><label for="footer-inquiry-service">¿Qué te interesa?<select id="footer-inquiry-service" name="servicio" required><option value="" disabled selected>Elegí una opción</option><option value="Eventos">Eventos</option><option value="Viandas">Viandas</option><option value="Bar / Gastronomía">Bar / Gastronomía</option><option value="Pádel">Pádel / Canchas</option></select></label><label for="footer-inquiry-email">Email (opcional)<input id="footer-inquiry-email" name="email" type="email" autocomplete="email" maxlength="120" /></label><label class="form-wide" for="footer-inquiry-message">Mensaje (opcional)<textarea id="footer-inquiry-message" name="mensaje" rows="3" maxlength="800"></textarea></label></div><p class="form-note">Se abrirá WhatsApp con tu consulta. Revisá el mensaje y envialo para que podamos responderte.</p><button class="gpc-button gpc-button-primary" type="submit">Continuar en WhatsApp <span aria-hidden="true">↗</span></button><p class="form-status" role="status" aria-live="polite"></p><p class="form-privacy">Tus datos se usan para esta consulta. <a href="./privacidad.html">Privacidad</a></p></fieldset></form><noscript><p class="form-note">Para consultar, <a href="https://wa.me/543417560704">escribinos por WhatsApp</a>.</p></noscript></div>
+        </div>
+      </section>
     </main>
 
     <footer class="gpc-footer">
@@ -315,20 +366,14 @@
             <span>WhatsApp</span>
           </a>
         </nav>
-        <form class="footer-newsletter" action="mailto:globalpadelcenter@gmail.com" method="post" enctype="text/plain">
-          <label for="footer-email">Comunidad Global</label>
-          <h3>Recib&iacute; novedades, torneos y eventos</h3>
-          <div>
-            <input id="footer-email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" required />
-            <button type="submit">Suscribirme</button>
-          </div>
-        </form>
+        <nav class="footer-service-links" aria-label="Servicios"><span>Tu experiencia</span><a href="#eventos">Eventos</a><a href="#viandas">Viandas</a><a href="#bar">Bar y gastronomía</a><a href="#consulta">Consultar por WhatsApp</a><a href="./privacidad.html">Privacidad</a></nav>
       </div>
       <div class="gpc-container footer-bottom">
         <a href="https://web.runia.ar" target="_blank" rel="noopener noreferrer">Developed by Runia Web</a>
       </div>
     </footer>
 
+    <script src="./measurement.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
