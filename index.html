@@ -10,6 +10,7 @@
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#060706" />
+    <script src="./site-config.js?v=review-2"></script>
     <link rel="canonical" href="https://globalpadelcenter.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_AR" />
@@ -60,7 +61,7 @@
     <link rel="apple-touch-icon" href="./assets/optimized/global-padel-isologo.png?v=3" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-mobile.avif" type="image/avif" media="(max-width: 680px)" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-desktop.avif" type="image/avif" media="(min-width: 681px)" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=20261019-commercial" />
+    <link rel="stylesheet" href="./styles.css?v=review-2" />
   </head>
   <body>
     <div class="gpc-progress" data-progress></div>
@@ -174,6 +175,7 @@
             <h2>EL <span>TERCER</span> TIEMPO EMPIEZA AC&Aacute;</h2>
           </div>
           <div class="bar-copy">
+            <div data-commercial-details="bar" hidden></div>
             <p>Cerveza, café, charlas y after pádel. Conocé la propuesta gastronómica de Global y consultá el menú vigente, los horarios y las opciones de reserva.</p>
             <p class="bar-details">¿Querés venir solo al bar? Consultanos por el acceso y la disponibilidad para tu visita.</p>
             <a class="gpc-button" href="https://wa.me/543417560704?text=Hola%20Global%20Padel%20Center%2C%20quiero%20consultar%20el%20men%C3%BA%2C%20los%20horarios%20y%20las%20reservas%20del%20bar." target="_blank" rel="noopener noreferrer">Consultar por el bar</a>
@@ -206,6 +208,7 @@
             <p class="gpc-kicker">Eventos en Global</p>
             <h2 id="eventos-title">Tu grupo.<br /><span>Un plan distinto.</span></h2>
             <p>Contanos qué querés organizar, cuándo y cuántas personas serían. El equipo te orienta sobre disponibilidad, propuesta gastronómica y opciones de pádel para tu encuentro.</p>
+            <div data-commercial-details="eventos" hidden></div>
             <img class="commercial-photo" src="./assets/optimized/gallery-gallery-lounge-desktop.webp" alt="Espacio de bar lounge de Global Padel Center" width="1200" height="800" loading="lazy" />
             <details><summary>¿Qué necesito para consultar?</summary><p>Una fecha estimada, el horario y la cantidad aproximada de personas. También podés indicar si te interesa sumar gastronomía o pádel.</p></details>
             <details><summary>¿Cómo confirmo un evento?</summary><p>Consultá con el equipo la capacidad, los servicios incluidos, el presupuesto y las condiciones de reserva, seña y cancelación. La consulta no confirma una reserva.</p></details>
@@ -225,6 +228,7 @@
             <p class="gpc-kicker">Viandas</p>
             <h2 id="viandas-title">Consultá el<br /><span>menú de viandas.</span></h2>
             <p>Escribinos para conocer la propuesta vigente y confirmar las opciones disponibles antes de hacer tu pedido.</p>
+            <div data-commercial-details="viandas" hidden></div>
           </div>
           <div class="service-info">
             <p class="gpc-kicker">Antes de pedir</p>
@@ -369,12 +373,14 @@
         <nav class="footer-service-links" aria-label="Servicios"><span>Tu experiencia</span><a href="#eventos">Eventos</a><a href="#viandas">Viandas</a><a href="#bar">Bar y gastronomía</a><a href="#consulta">Consultar por WhatsApp</a><a href="./privacidad.html">Privacidad</a></nav>
       </div>
       <div class="gpc-container footer-bottom">
+        <button class="measurement-settings" type="button" data-measurement-settings hidden>Preferencias de medición</button>
         <a href="https://web.runia.ar" target="_blank" rel="noopener noreferrer">Developed by Runia Web</a>
       </div>
     </footer>
 
-    <script src="./measurement.js?v=20261019-commercial"></script>
-    <script src="./script.js?v=20261019-commercial"></script>
+    <script src="./commercial-content.js?v=review-2"></script>
+    <script src="./measurement.js?v=review-2"></script>
+    <script src="./script.js?v=review-2"></script>
   </body>
 </html>
 
