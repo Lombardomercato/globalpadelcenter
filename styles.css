@@ -2275,3 +2275,30 @@ h2 {
  .hero-commercial .hero-inquiry > .gpc-kicker { display: none; }
  .hero-commercial .hero-inquiry h2 { margin-top: 0; font-size: 1.4rem; }
 }
+
+/* Review-only notice and optional measurement preferences. */
+.review-banner { position:fixed; inset:0 0 auto; z-index:100; padding:.35rem 1rem; text-align:center; font-size:.75rem; background:#bdd86b; color:#081008; }
+.review-banner a { text-decoration:underline; text-underline-offset:.15em; }
+.is-review .gpc-header { top:2.5rem; }
+.measurement-consent { position:fixed; inset:auto 1rem 1rem; z-index:110; margin:auto; max-width:48rem; border:1px solid var(--green); border-radius:1rem; padding:1.2rem; background:#10140f; color:var(--ink); box-shadow:0 1rem 4rem #0008; }
+.measurement-consent p { margin:0 0 .7rem; font-size:.9rem; }
+.measurement-consent p + p { color:var(--muted); font-size:.8rem; }
+.measurement-consent a { text-decoration:underline; }
+.measurement-consent > div { display:flex; flex-wrap:wrap; gap:.7rem; }
+.measurement-consent button,.measurement-settings { min-height:44px; border:1px solid var(--line); border-radius:.5rem; padding:.65rem 1rem; background:#171e12; color:var(--ink); cursor:pointer; }
+.measurement-consent button:focus-visible,.measurement-settings:focus-visible { outline:2px solid var(--green); outline-offset:2px; }
+.measurement-consent[hidden],.measurement-settings[hidden],[data-commercial-details][hidden] { display:none !important; }
+.commercial-facts { display:grid; gap:.4rem; margin:1.5rem 0; }
+.commercial-facts dt { color:var(--green); font-size:.9rem; }
+.commercial-facts dd { margin:0 0 .8rem; color:var(--muted); line-height:1.6; white-space:pre-line; }
+.review-content { max-width:1100px; padding-top:7rem; padding-bottom:4rem; }
+.review-content h1 { font-size:clamp(2.3rem,5vw,4rem); line-height:1; margin:1.5rem 0; }
+.review-content h2 { font-size:1.8rem; margin:2.5rem 0 1rem; }
+.review-content p,.review-content li { color:var(--muted); line-height:1.7; }
+.review-content a { color:var(--green); text-decoration:underline; }
+.review-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+.review-table th,.review-table td { text-align:left; vertical-align:top; padding:1rem .6rem; border-bottom:1px solid var(--line); }
+.review-table th { color:var(--green); font-weight:400; }
+.review-table td:first-child { width:25%; }
+.review-content .table-wrap { overflow-x:auto; }
+@media(max-width:680px) { .review-banner { font-size:.67rem; } .review-table th,.review-table td { padding:.75rem .4rem; font-size:.8rem; } }
