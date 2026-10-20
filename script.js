@@ -91,48 +91,69 @@ if (reducedMotion) {
 }
 
 
-// Prepare the message locally. Opening WhatsApp is not a received lead.
-const inquiryLabels = { nombre: "Nombre", telefono: "WhatsApp", servicio: "Interés", email: "Email", tipo_evento: "Tipo de evento", personas: "Personas aproximadas", fecha: "Fecha estimada", horario: "Horario", gastronomia: "Gastronomía", mensaje: "Mensaje" };
-const localToday = () => {
- const now = new Date();
- return [now.getFullYear(), String(now.getMonth()+1).padStart(2,"0"), String(now.getDate()).padStart(2,"0")].join("-");
+// WhatsApp is the current transport. Callback capture requires an approved endpoint.
+// A received lead is recorded only after an explicit {received:true} server response.
+const inquiryLabels = {nombre:"Nombre",telefono:"WhatsApp",servicio:"Interés",email:"Email",tipo_evento:"Tipo de evento",personas:"Personas aproximadas",fecha:"Fecha estimada",horario:"Horario",gastronomia:"Gastronomía",mensaje:"Mensaje"};
+const localToday = () => {const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");};
+const configuredEndpoint = () => {
+ const value=window.GPC_CONFIG?.forms?.endpoint;
+ if (!value) return null;
+ try {const u=new URL(value,location.href);return u.protocol==="https:" ? u.href : null;} catch {return null;}
 };
-document.querySelectorAll("[data-inquiry-form]").forEach(form => {
- const status = form.querySelector(".form-status");
- const phone = form.elements.namedItem("telefono");
- const date = form.elements.namedItem("fecha");
- if (date) date.min = localToday();
- let started = false;
- form.addEventListener("input", () => {
-  if (!started) {
-   started = true;
-   window.gpcMeasure?.("inquiry_form_start", { form_location: form.dataset.formLocation, service: form.elements.namedItem("servicio")?.value || "general" });
-  }
-  phone.setCustomValidity("");
-  status.replaceChildren();
+document.querySelectorAll("[data-inquiry-form]").forEach(form=>{
+ const status=form.querySelector(".form-status"), fields=form.querySelector("fieldset"), button=form.querySelector('button[type="submit"]');
+ const phone=form.elements.namedItem("telefono"), name=form.elements.namedItem("nombre"), date=form.elements.namedItem("fecha");
+ const endpoint=configuredEndpoint();
+ const normalLabel=endpoint ? (form.id==="event-inquiry"?"Solicitar cotización":"Quiero recibir información") : "Continuar en WhatsApp ↗";
+ button.textContent=normalLabel;
+ if (endpoint) {
+  form.querySelector(".form-note").textContent="Enviaremos estos datos a Global para responder tu consulta. El envío no confirma una reserva.";
+ }
+ if (date) date.min=localToday();
+ let started=false, submitting=false;
+ form.addEventListener("input",()=>{
+  if (!started) {started=true;window.gpcMeasure?.("inquiry_form_start",{form_location:form.dataset.formLocation,service:form.elements.namedItem("servicio")?.value});}
+  phone.setCustomValidity("");name.setCustomValidity("");status.replaceChildren();
  });
- form.addEventListener("submit", event => {
+ form.addEventListener("submit",async event=>{
   event.preventDefault();
-  if (date) date.min = localToday();
-  const digits = phone.value.replace(/\D/g, "");
-  phone.setCustomValidity(digits.length < 6 || digits.length > 15 ? "Ingresá un teléfono válido con código de área." : "");
+  if (submitting) return;
+  if (date) date.min=localToday();
+  const digits=phone.value.replace(/\D/g,"");
+  phone.setCustomValidity(digits.length<6||digits.length>15?"Ingresá un teléfono válido con código de área.":"");
+  name.setCustomValidity(name.value.trim().length<2?"Ingresá tu nombre.":"");
   if (!form.reportValidity()) return;
-  const data = new FormData(form);
-  const lines = ["Hola Global Padel Center, quiero hacer una consulta."];
-  for (const [name, value] of data) {
-   const text = String(value).trim();
-   if (text && inquiryLabels[name]) lines.push(inquiryLabels[name] + ": " + text);
+  const data=new FormData(form), payload={};
+  for (const [key,value] of data) if (inquiryLabels[key]) payload[key]=String(value).trim();
+  const lines=["Hola Global Padel Center, quiero hacer una consulta.",...Object.entries(payload).filter(([,v])=>v).map(([k,v])=>inquiryLabels[k]+": "+v)];
+  const url="https://wa.me/543417560704?text="+encodeURIComponent(lines.join("\n"));
+  const fallback = text => {
+   const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener noreferrer";a.textContent=text;
+   return a;
+  };
+  status.replaceChildren();
+  if (!endpoint) {
+   status.append("Tu consulta está preparada. Revisala y enviala en WhatsApp. Si no se abre, ",fallback("abrí tu consulta desde acá"),".");
+   window.gpcMeasure?.("inquiry_whatsapp_open",{form_location:form.dataset.formLocation,service:payload.servicio});
+   window.open(url,"_blank","noopener,noreferrer");
+   return;
   }
-  const url = "https://wa.me/543417560704?text=" + encodeURIComponent(lines.join("\n"));
-  const continuation = document.createElement("a");
-  continuation.href = url;
-  continuation.target = "_blank";
-  continuation.rel = "noopener noreferrer";
-  continuation.textContent = "Abrir mi consulta en WhatsApp";
-  status.append("Se preparó tu consulta. Revisala y enviala en WhatsApp. Si no se abre, ", continuation, ".");
-  window.gpcMeasure?.("inquiry_whatsapp_open", { form_location: form.dataset.formLocation, service: data.get("servicio") || "general" });
-  const opened = window.open(url, "_blank");
-  if (opened) opened.opener = null;
+  submitting=true;fields.disabled=true;button.textContent="Enviando…";form.setAttribute("aria-busy","true");
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),window.GPC_CONFIG?.forms?.timeoutMs||12000);
+  try {
+   const response=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({form:form.dataset.formLocation,...payload}),signal:controller.signal,credentials:"omit",referrerPolicy:"no-referrer"});
+   if (!response.ok) throw Error("not-received");
+   const receipt=await response.json();
+   if (receipt.received!==true) throw Error("not-received");
+   status.textContent="Recibimos tu consulta. El equipo de Global se pondrá en contacto con vos. Esto no confirma una reserva.";
+   window.gpcMeasure?.("inquiry_form_received",{form_location:form.dataset.formLocation,service:payload.servicio});
+   form.reset();started=false;
+  } catch {
+   status.append("No pudimos confirmar la recepción. Conservamos tus datos en este formulario para que puedas reintentar o ",fallback("continuar por WhatsApp"),".");
+  } finally {
+   clearTimeout(timeout);submitting=false;fields.disabled=false;button.textContent=normalLabel;form.removeAttribute("aria-busy");
+  }
  });
- form.querySelector("fieldset").disabled = false;
+ fields.disabled=false;
 });
