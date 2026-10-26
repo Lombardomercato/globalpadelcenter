@@ -3325,3 +3325,22 @@ body.stories-open {
 @media(max-width: 900px) { .service-contact-grid { gap: 3rem; } .footer-grid:has(.commercial-footer-form) { grid-template-columns: 1fr 1fr; } .commercial-footer-form { grid-column: 1 / -1; } }
 @media(max-width: 680px) { .service-hero { min-height: 90svh; } .service-hero-content { padding-top: 9rem; padding-bottom: 3rem; } .service-hero-shade { background: linear-gradient(0deg,#060706,rgba(6,7,6,.55)); } .service-overview,.service-faq { padding-top: 3.5rem; padding-bottom: 3.5rem; } .service-cards,.service-contact-grid { grid-template-columns: 1fr; gap: 2rem; } .service-contact { padding: 3.5rem 0; } .form-fields { grid-template-columns: 1fr; } .service-editorial { font-size: 19vw; align-content: end; padding-bottom: 4rem; } }
 [data-story-service][hidden] { display: none; }
+
+/* Shared footer, including legal pages. One layout at every route. */
+.site-footer { padding: 2.5rem 0 1rem; }
+.site-footer .footer-grid { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,.6fr) minmax(0,1.6fr); gap: clamp(1.5rem,4vw,4rem); }
+.site-footer .footer-grid > * { min-width: 0; }
+.site-footer .commercial-footer-form { grid-column: auto; }
+.site-footer .footer-bottom { flex-wrap: wrap; }
+.site-footer .footer-links a { min-height: 44px; }
+@media(max-width:900px) {
+  .site-footer .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+  .site-footer .commercial-footer-form { grid-column: 1 / -1; }
+}
+@media(max-width:680px) {
+  .site-footer .footer-grid { grid-template-columns: minmax(0,1fr); gap: 2rem; }
+  .site-footer .commercial-footer-form { grid-column: auto; }
+  .site-footer .footer-links { display:flex; flex-direction:column; align-items:flex-start; gap:.2rem; }
+  .site-footer .form-fields { grid-template-columns: minmax(0,1fr); }
+  .site-footer .footer-bottom { align-items:flex-start; }
+}
