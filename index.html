@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -27,20 +27,8 @@
     <meta name="twitter:description" content="Canchas profesionales indoor, clases, torneos, alquiler de canchas, gastronom&iacute;a y comunidad en Rosario." />
     <meta name="twitter:image" content="https://globalpadelcenter.com/assets/social-preview.jpg?v=1" />
     <meta name="twitter:image:alt" content="Global Padel Center Rosario" />
-    <script>
-      window.GPC_GA_MEASUREMENT_ID = "G-1B64R6Q5KH";
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-
-      if (window.GPC_GA_MEASUREMENT_ID) {
-        const gpcAnalyticsScript = document.createElement("script");
-        gpcAnalyticsScript.async = true;
-        gpcAnalyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${window.GPC_GA_MEASUREMENT_ID}`;
-        document.head.appendChild(gpcAnalyticsScript);
-        gtag("js", new Date());
-        gtag("config", window.GPC_GA_MEASUREMENT_ID);
-      }
-    </script>
+    <script src="./commercial-config.js"></script>
+    <script src="./tracking.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -76,7 +64,7 @@
     <link rel="apple-touch-icon" href="./assets/optimized/global-padel-isologo.png?v=3" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-mobile.avif" type="image/avif" media="(max-width: 680px)" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-desktop.avif" type="image/avif" media="(min-width: 681px)" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=approved-2" />
+    <link rel="stylesheet" href="./styles.css?v=commercial-1" />
   </head>
   <body>
     <div class="gpc-progress" data-progress></div>
@@ -90,10 +78,10 @@
           <span></span><span></span>
         </button>
         <div class="gpc-menu" id="menu-principal" data-menu>
-          <a href="#club">Club</a>
-          <a href="#bar">Bar</a>
-          <a href="#torneos">Clases</a>
-          <a href="#marcas">Marcas</a>
+          <a href="./padel/">Pádel</a>
+          <a href="./eventos/">Eventos</a>
+          <a href="./viandas/">Viandas</a>
+          <a href="./bar/">Bar</a>
           <a href="#experiencia">Experiencia</a>
           <a href="#contacto">Contacto</a>
         </div>
@@ -225,6 +213,7 @@
               <li>After p&aacute;del</li>
             </ul>
             <a class="gpc-button" href="https://wa.me/543417828537?text=Hola%20Global%20Padel%20Center%2C%20quiero%20consultar%20por%20el%20bar%20y%20la%20propuesta%20gastron%C3%B3mica" target="_blank" rel="noopener noreferrer" data-ga-event="click_reservar_bar" data-ga-label="tercer_tiempo">Reservar en el bar</a>
+            <a class="commercial-inline" href="./bar/">Conocé la propuesta del bar →</a>
           </div>
         </div>
       </section>
@@ -430,17 +419,11 @@
             <span>WhatsApp</span>
           </a>
         </nav>
-        <form class="footer-newsletter" action="mailto:globalpadelcenter@gmail.com" method="post" enctype="text/plain">
-          <label for="footer-email">Comunidad Global</label>
-          <h3>Recib&iacute; novedades, torneos y eventos</h3>
-          <div>
-            <input id="footer-email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" required />
-            <button type="submit">Suscribirme</button>
-          </div>
-        </form>
+        <div class="commercial-footer-form"><p class="gpc-kicker">Hablemos</p><h3>¿Qué querés vivir en Global?</h3><form class="lead-form" data-lead-form><div class="form-fields"><label>Nombre<input name="name" autocomplete="given-name" maxlength="100" required></label><label>WhatsApp<input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[+0-9() .\-]{8,30}" required></label><label>Email <small>(opcional)</small><input name="email" type="email" autocomplete="email" maxlength="180"></label><label>¿Qué te interesa?<select name="service" required><option value="">Seleccioná una opción</option><option value="eventos">Eventos</option><option value="viandas">Viandas</option><option value="bar">Bar / Gastronomía</option><option value="padel">Pádel</option></select></label><label class="form-wide">Contanos tu consulta <small>(opcional)</small><textarea name="message" rows="3" maxlength="2000"></textarea></label></div><label class="form-trap" aria-hidden="true">Dejá este campo vacío<input name="website" tabindex="-1" autocomplete="off"></label><label class="form-consent"><input type="checkbox" name="consent" required> Acepto que Global me contacte por esta consulta. <a href="/privacidad/">Privacidad</a></label><p class="form-preview" data-form-notice></p><button class="gpc-button gpc-button-primary" type="submit">Quiero recibir información</button><p class="form-status" role="status" aria-live="polite"></p><a class="commercial-inline" data-wa-service="general" href="https://wa.me/543417560704">También podés consultar por WhatsApp →</a></form></div>
       </div>
       <div class="gpc-container footer-bottom">
         <a href="https://web.runia.ar" target="_blank" rel="noopener noreferrer">Developed by Runia Web</a>
+        <button class="tracking-preferences" type="button" data-tracking-preferences>Preferencias de medición</button>
         <nav class="footer-legal" aria-label="Documentaci&oacute;n legal">
           <a href="./privacidad/">Privacidad</a>
           <a href="./cookies/">Cookies</a>
@@ -450,6 +433,7 @@
     </footer>
 
     <script src="./script.js?v=approved-1"></script>
+    <script src="./commercial.js" defer></script>
   </body>
 </html>
 

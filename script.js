@@ -44,11 +44,7 @@ mapEnableButton?.addEventListener("click", () => {
 });
 
 const trackAnalyticsEvent = (eventName, params = {}) => {
-  if (typeof window.gtag !== "function") return;
-  window.gtag("event", eventName, {
-    event_category: "engagement",
-    ...params,
-  });
+  window.GPCTrack?.(eventName, { placement: params.event_label || '', whatsapp_action: params.whatsapp_action || '', page_path: location.pathname });
 };
 
 document.querySelectorAll("[data-ga-event]").forEach((element) => {
@@ -162,6 +158,20 @@ const renderStory = (index) => {
     });
   }
 
+  let serviceLink = document.querySelector("[data-story-service]");
+  const destinations = { eventos: "/eventos/", after: "/bar/", clases: "/padel/", torneos: "/padel/" };
+  if (!serviceLink && storiesDescription) {
+    serviceLink = document.createElement("a");
+    serviceLink.dataset.storyService = "";
+    serviceLink.className = "commercial-inline";
+    storiesDescription.parentElement.appendChild(serviceLink);
+  }
+  if (serviceLink) {
+    serviceLink.hidden = !destinations[story.id];
+    serviceLink.href = destinations[story.id] || "#";
+    serviceLink.textContent = "Conocé la propuesta y consultá →";
+  }
+
   storiesThumbs?.querySelectorAll("button").forEach((button, thumbIndex) => {
     button.classList.toggle("is-active", thumbIndex === activeStoryIndex);
   });
@@ -209,10 +219,10 @@ if (storiesViewer && storiesThumbs) {
     handleStorySwipe(delta);
   }, { passive: true });
   storiesViewer.addEventListener("pointerdown", (event) => {
-    storyPointerStart = event.clientX;
+    if (event.pointerType === "mouse") storyPointerStart = event.clientX;
   });
   storiesViewer.addEventListener("pointerup", (event) => {
-    handleStorySwipe(event.clientX - storyPointerStart);
+    if (event.pointerType === "mouse") handleStorySwipe(event.clientX - storyPointerStart);
   });
 
   window.addEventListener("keydown", (event) => {
