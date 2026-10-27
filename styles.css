@@ -3476,3 +3476,22 @@ body:has(.legal-page) .gpc-nav-cta { grid-column:3; justify-self:end; width:auto
   .site-footer .footer-contact-row a { font-size:.65rem; gap:.25rem; }
   .site-footer .footer-contact-row svg { width:12px; height:16px; }
 }
+
+/* Keep the WhatsApp alternative on its own row after the submit button. */
+.lead-form > .commercial-inline[data-wa-service] { display:flex; align-items:center; width:100%; min-height:44px; margin:.65rem 0 0; line-height:1.5; white-space:normal; overflow-wrap:break-word; }
+@media(min-width:681px) {
+  .site-footer .footer-contact-row { display:grid; grid-template-rows:repeat(3,16px); gap:0; justify-content:start; align-self:end; }
+  .site-footer .footer-contact-row a { display:flex; align-items:center; min-height:16px; height:16px; padding:0; line-height:16px; font-size:.72rem; }
+  .site-footer .footer-contact-row svg { width:14px; height:14px; }
+}
+@media(max-width:680px) {
+  .site-footer .footer-grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1rem; align-items:start; }
+  .site-footer .footer-brand,.site-footer .footer-links { display:grid; grid-template-rows:24px auto; gap:.65rem; align-items:start; }
+  .site-footer .footer-brand img { max-height:24px; object-fit:contain; object-position:left top; }
+  .site-footer .footer-brand p { margin:0; }
+  .site-footer .footer-brand p > span { line-height:20px; margin-top:0; }
+  .site-footer .footer-links > span { display:block; line-height:24px; margin:0; }
+  .site-footer .footer-contact-row { display:grid; grid-template-rows:repeat(3,20px); gap:0; justify-content:start; }
+  .site-footer .footer-contact-row a { min-height:20px; height:20px; align-items:center; padding:0; line-height:20px; }
+  .site-footer .footer-subscribe { grid-column:1 / -1; }
+}
