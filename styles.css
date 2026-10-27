@@ -3411,3 +3411,34 @@ body:has(.legal-page) .gpc-nav-cta { grid-column:3; justify-self:end; width:auto
   .contact-inquiry .contact-whatsapp { width:auto; }
   body[data-service="viandas"] .service-hero-image { object-position:59% 65%; }
 }
+
+/* Small, balanced footer. Keep newsletter consent readable and secondary. */
+.site-footer { padding:1.5rem 0 .5rem; }
+.site-footer .footer-grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr); align-items:start; gap:2rem; }
+.site-footer .footer-brand,.site-footer .footer-links { min-height:0; }
+.site-footer .footer-brand img { width:5rem; }
+.site-footer .footer-brand p { font-size:.72rem; margin-top:.45rem; line-height:1.35; }
+.site-footer .footer-links { display:flex; flex-direction:row; flex-wrap:wrap; gap:0 .85rem; align-items:center; }
+.site-footer .footer-links > span { flex-basis:100%; margin:0 0 .35rem; }
+.site-footer .footer-links a { min-height:44px; font-size:.76rem; }
+.site-footer .footer-subscribe { grid-column:auto; }
+.site-footer .footer-subscribe h3 { font-size:.9rem; margin:0 0 .6rem; line-height:1.25; }
+.site-footer .newsletter-row input,.site-footer .newsletter-row button { font-size:.78rem; }
+.site-footer .newsletter-consent { align-items:center; gap:.4rem; font-size:.69rem; line-height:1.4; margin:.45rem 0 .15rem; color:rgba(244,240,231,.65); }
+.site-footer .newsletter-consent input { width:13px; height:13px; flex-basis:13px; margin:0; }
+.site-footer .newsletter-meta { font-size:.64rem; line-height:1.4; }
+.site-footer .footer-bottom { margin-top:.9rem; padding-top:.3rem; gap:.5rem; }
+@media(max-width:900px) and (min-width:681px) {
+  .site-footer .footer-grid { grid-template-columns:minmax(0,.9fr) minmax(0,.8fr) minmax(0,1.4fr); gap:1.25rem; }
+  .site-footer .footer-links { gap:0 .5rem; }
+}
+@media(max-width:680px) {
+  .site-footer { padding:1.1rem 0 .4rem; }
+  .site-footer .footer-grid { grid-template-columns:minmax(0,1fr); gap:.8rem; }
+  .site-footer .footer-brand { align-items:center; gap:1rem; }
+  .site-footer .footer-brand p { margin:0; }
+  .site-footer .footer-links { justify-content:space-between; gap:0 .65rem; }
+  .site-footer .footer-links > span { display:none; }
+  .site-footer .footer-subscribe h3 { margin-bottom:.45rem; }
+  .site-footer .footer-bottom { margin-top:.75rem; }
+}

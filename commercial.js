@@ -31,7 +31,7 @@
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 12000);
       try {
-        const response = await fetch(config.newsletterEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: form.elements.email.value.trim(), marketingConsent: form.elements.marketingConsent.checked, consentVersion: 'newsletter-v1', page: location.pathname }), signal: controller.signal });
+        const response = await fetch(config.newsletterEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: form.elements.email.value.trim(), marketingConsent: form.elements.marketingConsent.checked, consentVersion: 'newsletter-v2', page: location.pathname }), signal: controller.signal });
         const result = await response.json();
         if (!response.ok || result.ok !== true || !result.receiptId) throw new Error('not_received');
         status.textContent = 'Recibimos tu solicitud. Revisá tu email para continuar.';
