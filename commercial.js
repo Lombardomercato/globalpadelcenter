@@ -17,6 +17,29 @@
     link.target = '_blank'; link.rel = 'noopener noreferrer';
     link.addEventListener('click', () => window.GPCTrack?.('click_whatsapp', { service, placement: 'commercial', page_path: location.pathname }));
   });
+  document.querySelectorAll('[data-newsletter-form]').forEach(form => {
+    const status = form.querySelector('.newsletter-status');
+    const button = form.querySelector('[type=submit]');
+    const ready = config.newsletterEnabled === true && typeof config.newsletterEndpoint === 'string' && config.newsletterEndpoint.startsWith('/') && !config.newsletterEndpoint.startsWith('//');
+    form.querySelector('[data-newsletter-notice]').textContent = ready ? '' : 'Suscripción en modo de prueba.';
+    let sending = false;
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (sending || !form.reportValidity()) return;
+      if (!ready) { status.textContent = 'Prueba completada. No guardamos tu email ni activamos una suscripción.'; return; }
+      sending = true; button.disabled = true; status.textContent = 'Enviando…';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
+      try {
+        const response = await fetch(config.newsletterEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: form.elements.email.value.trim(), marketingConsent: form.elements.marketingConsent.checked, consentVersion: 'newsletter-v1', page: location.pathname }), signal: controller.signal });
+        const result = await response.json();
+        if (!response.ok || result.ok !== true || !result.receiptId) throw new Error('not_received');
+        status.textContent = 'Recibimos tu solicitud. Revisá tu email para continuar.';
+        form.reset();
+      } catch (_) { status.textContent = 'No pudimos confirmar la suscripción. Intentá nuevamente más tarde.'; }
+      finally { clearTimeout(timeout); sending = false; button.disabled = false; }
+    });
+  });
   document.querySelectorAll('[data-lead-form]').forEach(form => {
     const status = form.querySelector('.form-status');
     const button = form.querySelector('[type=submit]');

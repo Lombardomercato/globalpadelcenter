@@ -2,6 +2,8 @@
 window.GPC_CONFIG = Object.freeze({
   formsEnabled: false, // Enable only after verifying reception end to end.
   leadEndpoint: '/api/leads',
+  newsletterEnabled: false,
+  newsletterEndpoint: '', // Connect a subscription provider that records consent and supports unsubscribe.
   trackingEnabled: false,
   ga4Id: 'G-1B64R6Q5KH',
   gtmId: '', // When GTM is set, configure GA4/Meta there to avoid duplicate tags.

@@ -43,7 +43,7 @@ No pedir contraseñas por chat. Acceder por invitación o conexión oficial.
 ## Cambios realizados
 
 - Home conserva portada y seis historias; sin banner ni formulario superpuesto.
-- Menú con acceso a los cuatro servicios; formulario general al final reemplaza el newsletter mailto.
+- Menú con acceso a los cuatro servicios; footer compacto con newsletter (email y consentimiento explícito de marketing). Los formularios comerciales permanecen en las páginas de servicio.
 - Cuatro páginas comerciales con la identidad existente, propuesta, condiciones a consultar, preguntas frecuentes y CTA.
 - Formulario de eventos con precalificación y formularios de consulta para otros servicios.
 - Estados de simulación, envío, éxito y error; consentimiento de contacto, validación y alternativa WhatsApp.
@@ -54,3 +54,7 @@ No pedir contraseñas por chat. Acceder por invitación o conexión oficial.
 ## Alcance comercial
 
 El documento no contiene el presupuesto ni el plan contratado. Falta contrastar páginas nuevas, integraciones y mantenimiento con el alcance pagado antes de prometer que todos están incluidos. No se contrataron plataformas ni se activó inversión publicitaria.
+
+## Newsletter del footer
+
+El footer común contiene únicamente email, autorización expresa para recibir novedades/promociones, acceso a Privacidad y botón Suscribirme. No hay campos comerciales ni consentimiento premarcado. La suscripción es independiente de las consultas. Falta elegir y conectar la plataforma de email marketing, registrar fecha/versión/origen del consentimiento y ofrecer baja en cada envío. Sigue en modo de prueba: no se guarda el email ni se suscribe al visitante. No activar newsletterEnabled hasta implementar y verificar su endpoint, confirmación de email, bajas y registro del consentimiento.
