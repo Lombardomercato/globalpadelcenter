@@ -64,7 +64,7 @@
     <link rel="apple-touch-icon" href="./assets/optimized/global-padel-isologo.png?v=3" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-mobile.avif" type="image/avif" media="(max-width: 680px)" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/optimized/hero-global-hero-desktop.avif" type="image/avif" media="(min-width: 681px)" fetchpriority="high" />
-    <link rel="stylesheet" href="/styles.css?v=newsletter-3" />
+    <link rel="stylesheet" href="/styles.css?v=review-4" />
   </head>
   <body>
     <div class="gpc-progress" data-progress></div>
@@ -380,20 +380,17 @@
         </div>
       </section>
 
-      <section class="contact scene scene-final" id="contacto" data-scene>
+      <section class="contact contact-inquiry scene scene-final" id="contacto" data-scene>
         <div class="scene-bg" data-parallax aria-hidden="true"></div>
         <div class="scene-shade" aria-hidden="true"></div>
         <div class="gpc-container contact-grid">
-          <div>
-            <p class="gpc-kicker contact-kicker">Comunidad <span>Global</span></p>
-            <h2>Tu pr&oacute;ximo partido empieza ac&aacute;</h2>
-            <p>Reserv&aacute; cancha, consult&aacute; torneos o arm&aacute; una experiencia para tu grupo. Global se coordina simple: por WhatsApp.</p>
+          <div class="contact-intro">
+            <p class="gpc-kicker contact-kicker">Contacto <span>Global</span></p>
+            <h2>Tu próxima experiencia empieza <span>acá.</span></h2>
+            <p>Un partido, una clase o un encuentro con tu grupo. Contanos qué te interesa y el equipo de Global te orienta.</p>
+            <a class="gpc-button contact-whatsapp" href="https://wa.me/543417560704?text=Hola%20Global%2C%20quiero%20recibir%20informacion" target="_blank" rel="noopener noreferrer" data-ga-event="click_whatsapp" data-ga-label="contacto_home">Prefiero hablar por WhatsApp</a>
           </div>
-          <div class="contact-actions" aria-label="Acciones r&aacute;pidas por WhatsApp">
-            <a class="gpc-button gpc-button-primary contact-main" href="https://wa.me/543417560704?text=Hola%20Global%20Padel%20Center%2C%20quiero%20reservar%20una%20cancha" target="_blank" rel="noopener noreferrer" data-ga-event="click_reservar_cancha" data-ga-label="cta_final"><span>Reservar cancha</span><small>Reserv&aacute; tu turno en segundos.</small></a>
-            <a class="gpc-button" href="https://wa.me/543417560704?text=Hola%20Global%20Padel%20Center%2C%20quiero%20informaci%C3%B3n%20sobre%20torneos" target="_blank" rel="noopener noreferrer" data-ga-event="click_consultar_torneos" data-ga-label="cta_final"><span>Ver torneos</span><small>Consult&aacute; pr&oacute;ximos eventos y competencias.</small></a>
-            <a class="gpc-button" href="https://wa.me/543417828537?text=Hola%20Global%20Padel%20Center%2C%20quiero%20consultar%20por%20eventos%20y%20bar" target="_blank" rel="noopener noreferrer" data-ga-event="click_reservar_bar" data-ga-label="cta_final"><span>Eventos y bar</span><small>Viv&iacute; la experiencia Global dentro y fuera de la cancha.</small></a>
-          </div>
+          <div class="inquiry-panel"><h3>Dejanos tu consulta</h3><p class="inquiry-intro">Completá tus datos y elegí el servicio que te interesa.</p><form class="lead-form" data-lead-form><div class="form-fields"><label><span class="field-label">Nombre</span><input name="name" autocomplete="given-name" maxlength="100" required></label><label><span class="field-label">WhatsApp</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[+0-9() .\-]{8,30}" required></label><label><span class="field-label">Email <small>(opcional)</small></span><input name="email" type="email" autocomplete="email" maxlength="180"></label><label><span class="field-label">¿Qué te interesa?</span><select name="service" required><option value="">Seleccioná una opción</option><option value="eventos">Eventos</option><option value="viandas">Viandas</option><option value="bar">Bar / Gastronomía</option><option value="padel">Pádel</option></select></label><label class="form-wide"><span class="field-label">Contanos tu consulta <small>(opcional)</small></span><textarea name="message" rows="3" maxlength="2000"></textarea></label></div><label class="form-trap" aria-hidden="true">Dejá este campo vacío<input name="website" tabindex="-1" autocomplete="off"></label><label class="form-consent"><input type="checkbox" name="consent" required> Acepto que Global me contacte por esta consulta. <a href="/privacidad/">Privacidad</a></label><p class="form-preview" data-form-notice></p><button class="gpc-button gpc-button-primary" type="submit">Quiero recibir información</button><p class="form-status" role="status" aria-live="polite"></p><a class="commercial-inline" data-wa-service="general" href="https://wa.me/543417560704">También podés consultar por WhatsApp →</a></form></div>
         </div>
       </section>
     </main>

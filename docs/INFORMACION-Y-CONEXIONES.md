@@ -12,7 +12,7 @@ Borrador del 26 de octubre de 2026. Base aprobada: 1b6bd9a, con las seis histori
 | Pádel | Tarifas si se mostrarán; duración y condiciones de turnos; clases/niveles/horarios; agenda de torneos; cancelaciones; canal oficial de reserva. |
 | Operación | Confirmar números 3417560704 (pádel/general) y 3417828537 (bar/eventos); destino de viandas; email de avisos; responsable por servicio; horario y plazo de respuesta; quién actualiza menú/precios; autorización para mostrar marcas y material. |
 
-No se inventaron capacidades, precios, horarios, paquetes ni condiciones. Las páginas de prueba orientan a consultarlos. Viandas usa una composición tipográfica sin fotografía de comida hasta recibir material real. No lanzar campañas de viandas hasta completar la propuesta.
+No se inventaron capacidades, precios, horarios, paquetes ni condiciones. Las páginas de prueba orientan a consultarlos. Viandas usa una fotografía gastronómica existente del club como fondo provisional; falta una imagen específica de las viandas. No lanzar campañas de viandas hasta completar la propuesta.
 
 ## Plataformas y accesos
 
@@ -58,3 +58,9 @@ El documento no contiene el presupuesto ni el plan contratado. Falta contrastar 
 ## Newsletter del footer
 
 El footer común contiene únicamente email, autorización expresa para recibir novedades/promociones, acceso a Privacidad y botón Suscribirme. No hay campos comerciales ni consentimiento premarcado. La suscripción es independiente de las consultas. Falta elegir y conectar la plataforma de email marketing, registrar fecha/versión/origen del consentimiento y ofrecer baja en cada envío. Sigue en modo de prueba: no se guarda el email ni se suscribe al visitante. No activar newsletterEnabled hasta implementar y verificar su endpoint, confirmación de email, bajas y registro del consentimiento.
+
+## Actualización de menús y autonomía
+
+Definir si la carta y las viandas cambian diaria, semanal o estacionalmente; quién carga y aprueba, qué día se publica, qué datos cambian (menú, precios, packs, imágenes, stock), y si se programa la semana siguiente. Para cambios semanales simples, evaluar una planilla administrable; para fotos, disponibilidad y programación, evaluar panel con permisos, vista previa y publicación. Confirmar alcance y presupuesto antes de implementar administración.
+
+El formulario general de consulta se ubica en Contacto, al final del contenido principal de la home y antes del footer. El footer conserva exclusivamente el newsletter compacto.
