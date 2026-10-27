@@ -21,7 +21,7 @@
     const status = form.querySelector('.newsletter-status');
     const button = form.querySelector('[type=submit]');
     const ready = config.newsletterEnabled === true && typeof config.newsletterEndpoint === 'string' && config.newsletterEndpoint.startsWith('/') && !config.newsletterEndpoint.startsWith('//');
-    form.querySelector('[data-newsletter-notice]').textContent = ready ? '' : 'Suscripción en modo de prueba.';
+    form.querySelector('[data-newsletter-notice]').textContent = ready ? '' : 'Modo prueba';
     let sending = false;
     form.addEventListener('submit', async event => {
       event.preventDefault();
